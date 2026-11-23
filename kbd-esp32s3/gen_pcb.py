@@ -100,12 +100,13 @@ LAYOUT = [
      ("Fn",1),("Left",1),("Down",1),("Right",1)],
 ]
 
-# 板框与原点
-ORIGIN_X, ORIGIN_Y = 25.0, 52.0   # 顶部留白 52mm 供开发板双排针接口
-MARGIN_X, MARGIN_TOP, MARGIN_BOT = 8.0, 30.0, 40.0
+# 板框与原点（重做：顶部窄带放开发板排针，底部只留紧凑芯片带，消除大片空白）
+ORIGIN_X, ORIGIN_Y = 25.0, 40.0   # 顶部窄带 40mm：两排针 y=5/26.8，第一行键 y=40
+MARGIN_X, MARGIN_BOT = 8.0, 10.0
 max_row_u = max(sum(w for _, w in row) for row in LAYOUT)
-board_w = ORIGIN_X + max_row_u * U + MARGIN_X
-board_h = ORIGIN_Y + len(LAYOUT) * U + MARGIN_BOT
+board_w = ORIGIN_X + max_row_u * U + MARGIN_X       # ≈337.8
+board_h = ORIGIN_Y + len(LAYOUT) * U + MARGIN_BOT   # ≈164.3
+last_row_y = ORIGIN_Y + (len(LAYOUT) - 1) * U       # 最后一行键中心 ≈135.25
 
 # 板框
 outline = [(0,0),(board_w,0),(board_w,board_h),(0,board_h),(0,0)]
@@ -117,6 +118,19 @@ for i in range(len(outline)-1):
     seg.SetLayer(pcb.Edge_Cuts)
     seg.SetWidth(mm(0.1))
     board.Add(seg)
+
+# ---------- 开槽工具（Edge.Cuts 闭合矩形 = 板内挖空/铣槽）----------
+def slot_rect(x1, y1, x2, y2):
+    """在 Edge.Cuts 画一个闭合矩形槽（内轮廓），用于锣机铣槽。"""
+    corners = [(x1,y1),(x2,y1),(x2,y2),(x1,y2),(x1,y1)]
+    for a, b in zip(corners, corners[1:]):
+        s = pcb.PCB_SHAPE(board)
+        s.SetShape(pcb.SHAPE_T_SEGMENT)
+        s.SetStart(pcb.VECTOR2I(mm(a[0]), mm(a[1])))
+        s.SetEnd(pcb.VECTOR2I(mm(b[0]), mm(b[1])))
+        s.SetLayer(pcb.Edge_Cuts)
+        s.SetWidth(mm(0.1))
+        board.Add(s)
 
 # 安装孔（四角 M3）
 for hx, hy in [(5,5),(board_w-5,5),(5,board_h-5),(board_w-5,board_h-5)]:
@@ -140,9 +154,9 @@ for r, row in enumerate(LAYOUT):
               f"SW{knum:02d}", cx, cy, label,
               nets={"1": knet, "2": "GND"})
         # 上拉电阻 10k: pad1=VCC, pad2=按键网络
-        # 放在轴座右侧偏上，避开中心轴孔
+        # 放在轴座右下（焊盘侧），避开上半区的减振槽/隔离槽
         place("Resistor_SMD", "R_0603_1608Metric",
-              f"R{knum:02d}", cx + 7.6, cy - 7.6, "10k",
+              f"R{knum:02d}", cx + 7.6, cy + 7.6, "10k",
               nets={"1": "VCC", "2": knet})
         cursor += w
 
@@ -156,7 +170,7 @@ assert knum == 75, f"键数错误: {knum}"
 # ============================================================
 D_PINS = ["11","12","13","14","3","4","5","6"]
 ics = []  # 保存封装引用用于布线
-ic_y = board_h - 18
+ic_y = last_row_y + 20   # 芯片带紧贴键区下方（键区底 ~143，芯片中心 ~155），消除原底部 60mm 空白
 for i in range(10):
     ic_x = ORIGIN_X + 12 + i * ((max_row_u * U - 24) / 9)
     nets_map = {
@@ -194,8 +208,8 @@ for i in range(10):
 # ============================================================
 HDR_ROW_GAP = 21.80          # 两排针中心距(mm)
 HDR_PIN1_X = board_w/2 - 24  # pin1 左端 x
-HDR_P1_Y = 5.0               # P1 排 y（顶部留白内）
-HDR_P2_Y = HDR_P1_Y + HDR_ROW_GAP  # P2 排 y = 26.8，键盘首行 y=52，不冲突
+HDR_P1_Y = 4.0               # P1 排 y（顶部窄带内）
+HDR_P2_Y = HDR_P1_Y + HDR_ROW_GAP  # P2 排 y = 25.8，键盘首行 y=40，间距足够
 
 # P1 排针网络（1-20）
 p1_nets = {
@@ -233,7 +247,7 @@ place("Rotary_Encoder", "RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm",
       "ENC1", enc_x, enc_y, "EC11",
       nets={"A":"ENC_A","B":"ENC_B","C":"GND","S1":"ENC_SW","S2":"GND"})
 
-usb_x, usb_y = board_w - 20, board_h - 45
+usb_x, usb_y = 12.0, 16.0   # 顶部窄带左侧，开口朝板边（避开中部排针）
 place("Connector_USB", "USB_C_Receptacle_GCT_USB4085",
       "J_USB", usb_x, usb_y, "USB-C",
       nets={"A4":"VBUS","A9":"VBUS","B4":"VBUS","B9":"VBUS",
@@ -279,10 +293,10 @@ def add_via(netname, x, y, size=0.7, drill=0.35):
 # 5a. 级联链: 前级 Q7(pin9) -> 后级 DS(pin10)
 #     Q7/DS 是 SOIC 右侧相邻引脚(pin9 y+ / pin10 y-)，同层跨接必然交叉。
 #     解决: 引脚在 F.Cu 水平引出到出口列 -> 过孔下到 B.Cu -> 背面独立通道连接。
-chain_y = ic_y + 11
+chain_y = ic_y + 4.5
 for i in range(9):
     net = f"CHAIN_{i+1}"
-    seg_y = chain_y + i * 0.65        # B.Cu 各段独立通道
+    seg_y = chain_y + i * 0.42        # B.Cu 各段独立通道（板高收紧后压缩阶梯，留在板内）
     a = exit_x(ics[i], "9", 'R', dist=13)     # Q7 出口 (F.Cu)
     b = exit_x(ics[i+1], "10", 'R', dist=9)   # DS 出口 (F.Cu)
     if a and b:
@@ -297,6 +311,44 @@ if d_out:
 
 # 说明：CLK/SH_LD/+3V3/GND 及各按键扫描线的完整布线留待 GUI 中自动/手动完成。
 #       本阶段已完成全部焊盘网络分配（网络名即飞线依据），仅预布最关键的级联数据链。
+
+# ============================================================
+# 6. 防共振开槽（Edge.Cuts 铣槽）
+#    A. 大键减振槽：空格/Bksp/Enter/LShift 中心孔上下各开平行长槽，
+#       打断大键下方整块铜板的弯曲共振（槽位于轴座焊盘外侧、键帽覆盖内）。
+#    B. 键位隔离槽：相邻键之间的竖直/水平缝隙开细槽，但两端留桥不贯穿，
+#       把板面打散成小区又保留机械连接，避免整板像鼓皮一样共振。
+# ============================================================
+SLOT_W = 1.2          # 槽宽(mm)
+
+# MX 轴座焊盘全部集中在中心孔 +y 侧(y=+2.54/+5.08)，-y 上半区仅有中心孔/定位柱孔。
+# 所有槽开在键的上半区(y<cy)或键间竖直缝隙的上半段，避开焊盘，防止切铜。
+# A. 大键减振槽（键宽>=2u）：沿键上半部(y=cy-8)开一条长槽，打断大键下方板面共振。
+for r, row in enumerate(LAYOUT):
+    cursor = 0.0
+    cy = ORIGIN_Y + r * U
+    for label, w in row:
+        cx = ORIGIN_X + (cursor + w/2.0) * U
+        if w >= 2.0:
+            half = w/2.0 * U
+            sx1 = cx - half + 2.5
+            sx2 = cx + half - 2.5
+            sy = cy - 8.0   # 中心孔(r=2)/定位柱孔(r=0.85)上方，焊盘区(y=+2.5/+5)之外
+            slot_rect(sx1, sy - SLOT_W/2, sx2, sy + SLOT_W/2)
+        cursor += w
+
+# B. 键位隔离槽：相邻键之间的竖直缝隙，只开上半段（避开下半焊盘），下端留桥保持连接。
+for r, row in enumerate(LAYOUT):
+    cy = ORIGIN_Y + r * U
+    cursor = 0.0
+    edges = []
+    for label, w in row:
+        cursor += w
+        edges.append(ORIGIN_X + cursor * U)   # 该键右边界 = 相邻键缝隙
+    for ex in edges[:-1]:
+        sy1 = cy - 9.0   # 键顶内侧（上半区顶）
+        sy2 = cy - 3.0   # 止于中心孔上方(r=2)留 1mm，焊盘区(y=+2.5/+5)完全避开
+        slot_rect(ex - SLOT_W/2, sy1, ex + SLOT_W/2, sy2)
 
 pcb.SaveBoard("kbd-esp32s3.kicad_pcb", board)
 print(f"PCB 生成完成: {knum} 键(纯 MX 热插拔轴座) + {knum} 上拉电阻 + 10×74HC165 + 10×去耦 + 排母/编码器/USB-C")

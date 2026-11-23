@@ -190,7 +190,7 @@ for k in keys:
 for hx, hy in [(5, 5), (board_w - 5, 5), (5, board_h - 5), (board_w - 5, board_h - 5)]:
     circle(hx, hy, 1.6, 0.1)
 
-# 2.5 开发板排针/本体避让窗（顶部留白区，不碰首行键 y=52）
+# 2.5 开发板排针/本体避让窗（顶部窄带；首行键 y=40，键孔顶 y=33，窗底 31 留 2mm 不碰）
 rect(140, 2, 198, 31, 0.1)
 
 plate_path = os.path.join(HERE, "kbd-plate.kicad_pcb")
