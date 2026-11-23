@@ -64,7 +64,8 @@ def add_net(name):
 for k in D.KEYS:
     add_net(D.key_net(k["n"]))
 for extra in (["GND", "VCC", "CLK", "SH_LD"] + [f"CHAIN_{i}" for i in range(1, 11)]
-              + ["ENC_A", "ENC_B", "ENC_SW", "USB_D+", "USB_D-"]):
+              + ["ENC_A", "ENC_B", "ENC_SW", "USB_D+", "USB_D-"]
+              + ["V5", D.LED_IN_NET] + [D.led_net_out(i) for i in range(D.LED_COUNT)]):
     add_net(extra)
 
 
@@ -128,7 +129,7 @@ for i in range(D.CHIP_COUNT):
     for pin, knum in D.CHIP_INPUTS[i]:
         pmap[pin] = D.key_net(knum) if knum else "GND"
     place("SOIC-16W_7.5x10.3mm_P1.27mm", f"U{i+1}", "74HC165", D.IC_XS[i], D.IC_Y, 0, pmap)
-    place("C_0603_1608Metric", f"C{i+1}", "100nF", D.IC_XS[i] + 12.0, D.IC_Y - 1.0, 0,
+    place("C_0603_1608Metric", f"C{i+1}", "100nF", D.IC_XS[i] + 10.5, 148.0, 0,
           {"1": "VCC", "2": "GND"})
     # 该片 8 路输入的上拉：2 行 × 4 列，压在芯片正上方
     for j, (pin, knum) in enumerate(D.CHIP_INPUTS[i]):
@@ -143,7 +144,8 @@ for i in range(D.CHIP_COUNT):
 HDR_PIN1_X = D.BOARD_W / 2 - 24
 place("PinHeader_1x20_P2.54mm_Vertical", "J_P1", "DEV-KIT-P1", HDR_PIN1_X, 4.0, 90,
       {"1": "VCC", "3": "CLK", "4": "SH_LD", "5": "CHAIN_10",
-       "6": "ENC_A", "7": "ENC_B", "8": "ENC_SW"})
+       "6": "ENC_A", "7": "ENC_B", "8": "ENC_SW",
+       "9": D.LED_IN_NET, "20": "V5"})
 place("PinHeader_1x20_P2.54mm_Vertical", "J_P2", "DEV-KIT-P2", HDR_PIN1_X, 25.8, 90,
       {"1": "GND"})
 place("RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm", "ENC1", "EC11",
@@ -153,6 +155,41 @@ place("USB_C_Receptacle_GCT_USB4085", "J_USB", "USB-C", 12.0, 16.0, 0,
       {"A4": "VCC", "A9": "VCC", "B4": "VCC", "B9": "VCC",
        "A1": "GND", "A12": "GND", "B1": "GND", "B12": "GND",
        "A6": "USB_D+", "A7": "USB_D-", "B6": "USB_D+", "B7": "USB_D-"})
+
+def led_footprint(ref, x, y, nets):
+    """SK6812MINI-E 内联封装（B.Cu 面贴装，四脚 0.85x0.85）"""
+    pads = []
+    layout = [("1", -D.LED_PAD_DX, -D.LED_PAD_DY), ("2", D.LED_PAD_DX, -D.LED_PAD_DY),
+              ("3", D.LED_PAD_DX, D.LED_PAD_DY), ("4", -D.LED_PAD_DX, D.LED_PAD_DY)]
+    for num, dx, dy in layout:
+        nm = nets.get(num)
+        pad = ["pad", num, "smd", "rect", ["at", f"{dx:g}", f"{dy:g}"],
+               ["size", "0.85", "0.85"],
+               ["layers", K.Str("B.Cu"), K.Str("B.Mask"), K.Str("B.Paste")]]
+        if nm:
+            pad.append(["net", str(NET_ID[nm]), K.Str(nm)])
+        pad.append(["uuid", new_uuid()])
+        pads.append(pad)
+    node = ["footprint", K.Str("LED_SK6812MINI-E"), ["layer", K.Str("B.Cu")],
+            ["uuid", new_uuid()], ["at", f"{x:.3f}", f"{y:.3f}"],
+            ["attr", "smd"], ["descr", K.Str("RGB underglow LED, provision only")],
+            ["fp_rect", ["start", "-1.6", "-1.4"], ["end", "1.6", "1.4"],
+             ["stroke", ["width", "0.12"], ["type", "solid"]],
+             ["fill", "none"], ["layer", K.Str("B.SilkS")], ["uuid", new_uuid()]],
+            ["property", K.Str("Reference"), K.Str(ref), ["at", "0", "-2.6", "0"],
+             ["layer", K.Str("B.SilkS")], ["uuid", new_uuid()],
+             ["effects", ["font", ["size", "0.8", "0.8"]], ["hide", "yes"]]],
+            ["property", K.Str("Value"), K.Str("SK6812MINI-E"), ["at", "0", "2.6", "0"],
+             ["layer", K.Str("B.Fab")], ["uuid", new_uuid()],
+             ["effects", ["font", ["size", "0.8", "0.8"]], ["hide", "yes"]]]]
+    node.extend(pads)
+    BOARD.append(node)
+
+
+for i, lx in enumerate(D.LED_XS):
+    led_footprint(f"L{i+1:02d}", lx, D.LED_Y,
+                  {"1": D.LED_NET_VDD, "2": D.led_net_out(i),
+                   "3": D.LED_NET_GND, "4": (D.LED_IN_NET if i == 0 else D.led_net_out(i - 1))})
 
 for hx, hy in [(5, 5), (D.BOARD_W - 5, 5), (5, D.BOARD_H - 5), (D.BOARD_W - 5, D.BOARD_H - 5)]:
     place("MountingHole_3.2mm_M3", f"H{int(hx)}_{int(hy)}", "M3", hx, hy, 0, None)

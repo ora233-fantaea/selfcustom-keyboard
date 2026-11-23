@@ -63,7 +63,7 @@ KEYS_BY_ROW = {r: [k for k in KEYS if k["row"] == r] for r in range(len(LAYOUT))
 
 # ---------- 芯片与网络分配 ----------
 CHIP_COUNT = 10
-IC_Y = ORIGIN_Y + (len(LAYOUT) - 1) * U + 20.0    # 40 + 95.25 + 20 = 155.25
+IC_Y = ORIGIN_Y + (len(LAYOUT) - 1) * U + 18.25     # 153.5：底部让出 5.8mm 给灯带与横向总线
 IC_X0, IC_X1 = ORIGIN_X + 12.0, BOARD_W - 20.0
 IC_PITCH = (IC_X1 - IC_X0) / (CHIP_COUNT - 1)
 IC_XS = [IC_X0 + i * IC_PITCH for i in range(CHIP_COUNT)]
@@ -130,3 +130,23 @@ def slot_rects():
         for a, b in segs:
             out.append((a, y1, b, y2))
     return out
+
+
+# ---------- 预留灯光：板边 underglow ----------
+LED_COUNT = 20
+LED_Y = 161.4                 # 底边灯带中心（B.Cu）
+LED_X0, LED_X1 = 26.0, 315.0
+LED_PITCH = (LED_X1 - LED_X0) / (LED_COUNT - 1)
+LED_XS = [LED_X0 + i * LED_PITCH for i in range(LED_COUNT)]
+LED_PAD_DX, LED_PAD_DY = 1.45, 0.75
+# pad1=VDD(5V) 2=DOUT 3=GND 4=DIN  (SK6812MINI-E)
+LED_NET_VDD = "V5"
+LED_NET_GND = "GND"
+
+
+def led_net_out(i):
+    """第 i 颗灯的 DOUT 网络名；最后一颗输出到测试点"""
+    return f"LED_D{i}"
+
+
+LED_IN_NET = "LED_DATA"       # 来自 J_P1.9 (GPIO17)

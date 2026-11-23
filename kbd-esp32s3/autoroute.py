@@ -37,6 +37,7 @@ def build_grid(g):
             gr.rect(p["x"] - p["w"] / 2, p["y"] - p["h"] / 2,
                     p["x"] + p["w"] / 2, p["y"] + p["h"] / 2, layers=idx, pad=0.30)
     gr.occ = np.zeros_like(gr.blocked)
+    gr.build_via_mask()
     return gr
 
 
@@ -104,6 +105,23 @@ def main():
     for net, num in (("ENC_A", "A"), ("ENC_B", "B"), ("ENC_SW", "S1")):
         tasks.append((net, pad_of("ENC1", num), pad_of("J_P1", {"ENC_A": "6", "ENC_B": "7", "ENC_SW": "8"}[net])))
 
+    # ---- 灯带链（确定性） ----
+    led_extra = []
+    for i in range(D.LED_COUNT - 1):
+        a = pad_of(f"L{i+1:02d}", "2")
+        b = pad_of(f"L{i+2:02d}", "4")
+        if not a or not b:
+            continue
+        yb = D.LED_Y + 1.75
+        pts = [(a["x"], a["y"]), (a["x"] + 1.75, a["y"]),
+               (a["x"] + 1.75, yb), (b["x"], yb), (b["x"], b["y"])]
+        for p, q in zip(pts, pts[1:]):
+            led_extra.append((D.led_net_out(i), "B.Cu", p, q))
+            for t_ in np.linspace(0, 1, max(2, int(math.hypot(q[0]-p[0], q[1]-p[1]) / 0.2))):
+                xx = p[0] + (q[0] - p[0]) * t_
+                yy = p[1] + (q[1] - p[1]) * t_
+                gr.occ[1, gr.iy(yy), gr.ix(xx)] = True
+
     tasks = [t for t in tasks if t[1] and t[2]]
     tasks.sort(key=lambda t: dist2(t[1], t[2]))
 
@@ -127,7 +145,7 @@ def main():
         for L, i0, i1, j0, j1, sub in saved:
             gr.blocked[L, j0:j1 + 1, i0:i1 + 1] = sub
 
-    traces, vias = [], []
+    traces, vias = list(led_extra), []
     ok, fail = 0, []
     for idx, (net, a, b) in enumerate(tasks):
         la = 0 if "F.Cu" in BG.copper_layers(a) and "B.Cu" not in BG.copper_layers(a) else (
@@ -166,11 +184,59 @@ def main():
                 traces.append((net, L, p, q))
         for (vx, vy) in vs:
             vias.append((net, vx, vy))
+            gr.mark_via(gr.ix(vx), gr.iy(vy))
         ok += 1
         if t0 and time.time() - t0 > 2.0:
             print(f"  [慢] #{idx} {net} {a['ref']}.{a['num']}->{b['ref']}.{b['num']} {time.time()-t0:.1f}s")
         if (idx + 1) % 20 == 0:
             print(f"  ... {idx+1}/{len(tasks)}  成功 {ok} 失败 {len(fail)}")
+
+    # ---------------- 电源网络：MST 连接 ----------------
+    def mst_route(net, budget_hint=1):
+        pts = [p for p in pads_by_net.get(net, []) if p["net"] == net]
+        if len(pts) < 2:
+            return 0, 0
+        unvisited = list(range(1, len(pts)))
+        done = [0]
+        edges = []
+        while unvisited:
+            best = None
+            for i in done:
+                for j in unvisited:
+                    d = dist2(pts[i], pts[j])
+                    if best is None or d < best[0]:
+                        best = (d, i, j)
+            edges.append((pts[best[1]], pts[best[2]]))
+            done.append(best[2])
+            unvisited.remove(best[2])
+        good = 0
+        for a, b in edges:
+            sa = soft_open(a); sb = soft_open(b)
+            pa = gr.astar((a["x"], a["y"], 0), (b["x"], b["y"], 0), occupied=gr.occ,
+                          margin_mm=max(10.0, math.hypot(a["x"]-b["x"], a["y"]-b["y"]) * 0.8),
+                          budget=120_000)
+            if pa is None:
+                pa = gr.astar((a["x"], a["y"], 1), (b["x"], b["y"], 1), occupied=gr.occ,
+                              margin_mm=max(10.0, math.hypot(a["x"]-b["x"], a["y"]-b["y"]) * 0.8),
+                              budget=120_000)
+            soft_restore(sa); soft_restore(sb)
+            if pa is None:
+                continue
+            for (x, y, L) in pa:
+                gr.occ[L, max(0, y-1):y+2, max(0, x-1):x+2] = True
+            geo, vs = path_to_geom(gr, pa)
+            for L, pl in geo:
+                for p, q in zip(pl, pl[1:]):
+                    traces.append((net, L, p, q))
+            for (vx, vy) in vs:
+                vias.append((net, vx, vy))
+                gr.mark_via(gr.ix(vx), gr.iy(vy))
+            good += 1
+        print(f"  [电源] {net}: {good}/{len(edges)} 段")
+        return good, len(edges)
+
+    for pnet in ("GND", "VCC", "V5"):
+        mst_route(pnet)
 
     print(f"\n布线完成 {ok}/{len(tasks)}，失败 {len(fail)}")
     for net, a, b in fail[:15]:

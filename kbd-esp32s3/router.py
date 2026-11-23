@@ -60,6 +60,15 @@ class Grid:
         self.blocked[:, :, min(self.nx, self.ix(self.w - m)):] = True
 
     # ---------------- A* ----------------
+    def build_via_mask(self):
+        """过孔可用性：静态障碍外扩 3 格(0.6mm)"""
+        a = self.blocked
+        out = a.copy()
+        for dy in range(-3, 4):
+            for dx in range(-3, 4):
+                out |= np.roll(np.roll(a, dy, axis=1), dx, axis=2)
+        self.via_block = out
+
     def _init_astar(self):
         if not hasattr(self, "_g"):
             self._g = np.full((2, self.ny, self.nx), np.inf, dtype=np.float32)
@@ -128,7 +137,10 @@ class Grid:
                     cm_arr[L, ay, ax] = k(L, y, x)
                     heapq.heappush(pq, (ng + abs(ax - gx) + abs(ay - gy), ng, L, ay, ax))
             ol = 1 - L
-            if not blk[ol, y, x] and not occ[ol, y, x]:
+            if not self.via_block[L, y, x] and not self.via_block[ol, y, x] and \
+               not occ[L, y, x] and not occ[ol, y, x] and \
+               not occ[L, max(0,y-2):y+3, max(0,x-2):x+3].any() and \
+               not occ[ol, max(0,y-2):y+3, max(0,x-2):x+3].any():
                 ng = g + VIA_COST
                 if st_arr[ol, y, x] != mk or ng < g_arr[ol, y, x]:
                     st_arr[ol, y, x] = mk
@@ -136,6 +148,13 @@ class Grid:
                     cm_arr[ol, y, x] = k(L, y, x)
                     heapq.heappush(pq, (ng + abs(x - gx) + abs(y - gy), ng, ol, y, x))
         return None
+
+    def mark_via(self, x, y):
+        for L in (0, 1):
+            j0, j1 = max(0, y - 3), min(self.ny - 1, y + 3)
+            i0, i1 = max(0, x - 3), min(self.nx - 1, x + 3)
+            self.occ[L, j0:j1 + 1, i0:i1 + 1] = True
+            self.via_block[L, j0:j1 + 1, i0:i1 + 1] = True
 
     def occupy(self, path, layer_by_node=True, pad=1):
         """把路径标记为占用（对同层外扩 pad 格）"""

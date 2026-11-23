@@ -33,7 +33,7 @@ for p in g["pads"]:
                            fc=color, ec="none", alpha=0.95, zorder=5))
 
 for layer, col in (("F.Cu", "#1f9d55"), ("B.Cu", "#8e44ad")):
-    segs = [(t["x1"], t["y1"], t["x2"], t["y2"]) for t in g["tracks"] if t["layer"] == layer]
+    segs = [[(t["x1"], t["y1"]), (t["x2"], t["y2"])] for t in g["tracks"] if t["layer"] == layer]
     if segs:
         ax.add_collection(LineCollection(segs, colors=col, linewidths=0.55, zorder=4))
 

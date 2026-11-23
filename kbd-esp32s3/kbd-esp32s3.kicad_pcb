@@ -463,6 +463,72 @@
 	(net
 		94
 		"USB_D-")
+	(net
+		95
+		"V5")
+	(net
+		96
+		"LED_DATA")
+	(net
+		97
+		"LED_D0")
+	(net
+		98
+		"LED_D1")
+	(net
+		99
+		"LED_D2")
+	(net
+		100
+		"LED_D3")
+	(net
+		101
+		"LED_D4")
+	(net
+		102
+		"LED_D5")
+	(net
+		103
+		"LED_D6")
+	(net
+		104
+		"LED_D7")
+	(net
+		105
+		"LED_D8")
+	(net
+		106
+		"LED_D9")
+	(net
+		107
+		"LED_D10")
+	(net
+		108
+		"LED_D11")
+	(net
+		109
+		"LED_D12")
+	(net
+		110
+		"LED_D13")
+	(net
+		111
+		"LED_D14")
+	(net
+		112
+		"LED_D15")
+	(net
+		113
+		"LED_D16")
+	(net
+		114
+		"LED_D17")
+	(net
+		115
+		"LED_D18")
+	(net
+		116
+		"LED_D19")
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -1367,7 +1433,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"6ce9f9bf-806c-4fa4-9581-4e928707ebc8"))
+			"54ae5576-fee2-4649-8f6e-f5d31dc1078f"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -2272,7 +2338,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"4ba301a6-f1aa-414e-8583-d729c5d28ad3"))
+			"1c8e4c63-4124-4d58-abd6-0dc8ca9160eb"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -3177,7 +3243,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"05001081-5955-438e-95a2-c1fe39955b08"))
+			"dd90f8cd-0063-4c93-a8bb-75054e7604cb"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -4082,7 +4148,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"737c3408-3e8a-498d-aed9-9d0c4226c0c7"))
+			"ca05abd7-fd86-41c7-a282-5fd628fc1ebb"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -4987,7 +5053,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"a0ad4079-b7ad-4b1b-81e0-230202695d34"))
+			"d763ac3c-7339-4ec9-8a99-60aecbce4dcf"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -5892,7 +5958,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"936b492c-7346-414a-8498-e33a2261e2c0"))
+			"5d0a7472-5ce3-4bf7-816f-2aa6f1f232b9"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -6797,7 +6863,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"51b07395-7ce3-4def-b648-f50d541b4bd3"))
+			"1507f999-add4-468e-8626-c73c79273341"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -7702,7 +7768,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"1fbc1790-d462-4008-ade2-c1477ecae354"))
+			"41c161f1-cb2a-4ad6-b832-48ad83846f7e"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -8607,7 +8673,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"2459244e-d478-45b7-9768-b1861fe23340"))
+			"442d6072-ba1a-42d4-9f75-37499df03274"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -9512,7 +9578,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"62a7457d-597e-4cfb-ba60-808e75132fb7"))
+			"5079953f-bddd-4a8f-b1b1-e2a32ed9992d"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -10417,7 +10483,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"547d02bb-d513-4d7a-981e-fcb2bc0d2993"))
+			"afc2cf04-0d3e-4ef8-84ca-a0b1260c9e9e"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -11322,7 +11388,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"ed664cb9-d64c-4b12-abb8-f536ccc97b77"))
+			"8a24c9bb-4aa6-497c-840f-d613e63f7758"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -12227,7 +12293,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"1e10af1e-4e46-40c9-bf96-81bc4f8f1114"))
+			"64a4f0d3-927c-4d29-8699-072aedce0889"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -13132,7 +13198,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"203e635d-7bca-4222-a6d8-645b7b903dcd"))
+			"bd479fdc-449c-4d4e-a19d-a6b270ad9343"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -14037,7 +14103,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"e7ff128c-e20f-4830-8219-29919151d052"))
+			"babe667f-bbd4-40bf-89e9-ed33ffaf9bb3"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -14942,7 +15008,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"802e0866-0803-4ef7-a9b9-ce74924b4717"))
+			"e69c90c9-d3fc-40ec-b63f-93b163fade30"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -15847,7 +15913,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"a6e3ee46-f70c-47c1-823d-fa2a70338bd6"))
+			"cb27baa0-3497-4f7d-9623-3ea7564bf448"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -16752,7 +16818,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"877eed4c-98db-4e3a-9809-c0a108ba3321"))
+			"a6204fd0-3da5-45f3-b59e-2c68d87e02c1"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -17657,7 +17723,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"6e546a35-a3ea-4126-ba23-a91d6da563f4"))
+			"26ceab7d-8f0e-4815-81f3-1e160f8eb0fe"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -18562,7 +18628,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"f680c09a-fe47-473a-98cc-e40149e3d4b8"))
+			"1e538bd0-88db-4b01-aefb-9658cfb843c9"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -19467,7 +19533,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"958b7957-b542-49fa-85e9-3e291d4517a5"))
+			"1ccac622-86be-4385-8b53-5b69449e2285"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -20372,7 +20438,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"5db2458a-6163-40d0-bb9a-34af086169d2"))
+			"aefd91c9-6815-43a6-be37-9a0f45ee911a"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -21277,7 +21343,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"944a84db-658c-4b7a-bd7c-55ccee438bc2"))
+			"62d92f6f-3816-41a6-9db7-57633f5bfc24"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -22182,7 +22248,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"55bce9e2-fa2a-4fb0-8c0e-a00b6921486d"))
+			"da3c9252-0337-4d62-8c4c-473599966f18"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -23087,7 +23153,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"a477d935-d754-4f22-ac89-8034793eb1eb"))
+			"78288080-c2a8-49ea-8222-d1902bf8b732"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -23992,7 +24058,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"f6043d0a-d32e-489f-812e-4e7c0cb5415b"))
+			"96ea01af-8469-4d1a-b0aa-a049e88f76cc"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -24897,7 +24963,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"b63a748f-98f5-462e-bf72-97ca9403f42a"))
+			"22efa202-ab7e-4129-af38-9cc31b243d48"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -25802,7 +25868,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"0adf0ca4-2b0a-4162-ba7d-7cd0ca65871e"))
+			"d00b512b-ed66-4c61-9155-16411bd5095c"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -26707,7 +26773,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"4e6b750c-5708-445f-a29a-6a16cb70f086"))
+			"1218badd-f41e-4fe2-a3b4-c8e3001c8821"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -27612,7 +27678,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"0790456b-158f-48b3-822f-b491eb05f852"))
+			"51930fe4-5703-4dd1-9025-61c50e3e55fe"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -28517,7 +28583,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"c77c710b-4795-4d6d-9139-63262c997c6a"))
+			"c91cc9da-ca6b-4b73-8ca0-29f6a70ad2a3"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -29422,7 +29488,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"5637e85f-b621-4b4f-9dea-5d676ccf75bb"))
+			"0cae1a7c-7ce8-453b-a377-dbfe1b798f98"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -30327,7 +30393,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"3e5f2a2e-5424-4d47-befd-65c3857e0688"))
+			"fb3c42f7-48fa-43d6-94d2-0c6172bafc38"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -31232,7 +31298,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"265bfdde-0c0a-4e0d-b1fd-564296e27ac2"))
+			"174a9942-64be-4ebd-9efe-9cb416dd50d3"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -32137,7 +32203,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"5ad6939e-579c-47a7-a9e8-8cdd58a59c8e"))
+			"caf51f5b-f386-41b1-ad1f-ee3f5e838eb0"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -33042,7 +33108,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"fe4407e6-d4e0-4b9f-8b9b-0caa97ab1d62"))
+			"24c72d56-f753-4b0e-af48-549cba376b25"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -33947,7 +34013,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"ca40d9ce-65dd-4751-8504-4eb4f2d9bacc"))
+			"00252047-1fb7-4b32-83e7-76321a7c8c6d"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -34852,7 +34918,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"9748c3c4-4274-41f0-8a2a-4c79f6e66af8"))
+			"f0a3e42d-c708-4626-acb9-d98b7ea7e79b"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -35757,7 +35823,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"5978e7e2-71bb-4686-8669-0e6759ad3fb7"))
+			"3e01b135-1652-45d1-bcf9-53fa48728575"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -36662,7 +36728,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"af5f7ad6-5b14-49cd-ad27-66b9bc1abb25"))
+			"ca0e622e-46d6-4474-ad54-ac31d3e5b06b"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -37567,7 +37633,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"1c9bcefa-9235-438c-8ae7-28602216c1e9"))
+			"b26389b7-0c2b-4b19-b055-e4029955eafe"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -38472,7 +38538,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"24b3e911-75bb-4f40-b353-13b1ef7232bc"))
+			"d5071f7f-5808-473f-b4c7-07d4d728db92"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -39377,7 +39443,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"f5aa9760-bc77-46ad-aa02-2be7b8abb25e"))
+			"62842df0-e56f-4db2-b28f-9afe4a1a6ab9"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -40282,7 +40348,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"ad5db405-355f-4b71-959c-b14c0172402d"))
+			"dcd00a90-e1d0-464f-b7c9-174f3fa9e506"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -41187,7 +41253,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"1d0f8eb4-6dcc-496a-a074-1927bd89c0f4"))
+			"b3466b93-0ec6-403a-b5cd-658b0ae3d965"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -42092,7 +42158,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"0e94f708-408e-441d-a83f-07b061355b6e"))
+			"bf2bef3c-4adb-40b6-bf28-20ce1aab22f9"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -42997,7 +43063,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"c884b6b5-4a55-4c02-8b80-58328cfb8f95"))
+			"289a1153-421a-4175-832e-556876b26c2b"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -43902,7 +43968,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"114986d7-6919-47e9-91b8-1f717f252c70"))
+			"d21f5749-2e55-4b5c-a746-9b01091b6c79"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -44807,7 +44873,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"e735c20e-ed89-41a7-8473-7246df036191"))
+			"e711a66a-fc24-4814-a963-02dc07b500a1"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -45712,7 +45778,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"3de71da0-be40-4a1e-aad1-b198f0460373"))
+			"8bd87fb3-3430-4e6c-930b-b2534c467037"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -46617,7 +46683,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"2f7386b2-997f-4467-a512-ad18cce549f2"))
+			"51eefa8f-4958-4eec-b1be-62e9c9b28c61"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -47522,7 +47588,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"3a977a2d-57dd-4b7b-90dd-e98e903c06f2"))
+			"cb6b0653-f5d1-405f-8604-7326b249d3a9"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -48427,7 +48493,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"cbc1616e-4ea9-4547-8eb5-6be350d3dfa9"))
+			"24bf5819-2692-451f-9e4f-1b6a0d8d6dd4"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -49332,7 +49398,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"99101dbe-53df-4051-b549-f7fca7ddd1a4"))
+			"647fe321-6526-40be-a933-4d712763fe53"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -50237,7 +50303,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"672f803e-70d3-45c4-a12b-ec487e2e60ef"))
+			"a3828013-806f-4264-9e31-ab7fede0d5ed"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -51142,7 +51208,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"3f4a2011-4aba-4378-b860-19b808f2b85a"))
+			"d75044da-f764-42e0-a3c3-4eeabc5722ae"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -52047,7 +52113,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"af26f5e1-b2c9-4392-86e6-a20161710828"))
+			"4a867b19-76ee-4dcf-be20-570c7f01ab09"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -52952,7 +53018,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"86ea76dc-bf2d-4592-9767-2ea279dc3ae1"))
+			"657aaad8-8a05-4033-a788-2719bd6164cb"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -53857,7 +53923,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"ba145578-1b3c-4883-bc07-b95700d2e783"))
+			"7cf14d31-4824-4b65-b210-941685d41a0d"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -54762,7 +54828,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"f0ccac43-41bc-4af7-aa55-60fc2fc69c53"))
+			"e82cea8c-16ca-4c48-a5e0-b1c9ecdc6dde"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -55667,7 +55733,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"cf6eded8-a2ec-477b-a695-690d29584871"))
+			"e4ea40ef-92f2-4fcc-8caa-7186749e3719"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -56572,7 +56638,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"4c141d7b-3a73-469e-b9e6-eb735a6af91a"))
+			"fb80c8ac-2ab2-433b-beb1-0f0763a5184d"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -57477,7 +57543,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"ec13aea3-cab2-4fc8-9d9a-595dddb92b42"))
+			"849aede7-db0a-4a70-aa69-2728feb23afd"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -58382,7 +58448,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"d84e1397-c689-499f-acd7-34a570918c92"))
+			"700e1f67-92bf-42dd-8a37-89929640c0b8"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -59287,7 +59353,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"8bebc50f-f017-4fec-8ad8-18465868bbb3"))
+			"84ba79e3-fc93-445a-a535-a676883f9e1f"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -60192,7 +60258,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"86445960-dd55-4d6a-8f3d-10c41fe1b0fd"))
+			"1392f388-dfa0-4e0d-87aa-1735e36ca173"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -61097,7 +61163,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"8dd54496-2014-4d33-bb63-5534ff608427"))
+			"4855f81b-e04b-486f-a916-b8f89b15ba8e"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -62002,7 +62068,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"ea25ebd5-7855-484d-b738-1e80b457dc77"))
+			"b0e55729-aedc-49ec-a328-434026fb2299"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -62907,7 +62973,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"9d435e10-1898-4617-8c99-ab44b0c2d298"))
+			"68917e64-6249-4bae-abbc-dda46d5cbcfa"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -63812,7 +63878,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"c3fcca99-a883-472a-a689-576e035ba540"))
+			"9157493a-3875-4b10-b373-d9294738c188"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -64717,7 +64783,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"2cbe46b7-c2ea-45e2-8f1c-6c4e355a2d00"))
+			"e50db39f-113a-4c93-8ea9-d64d8b7634b8"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -65622,7 +65688,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"47e83a60-ac67-4ec1-880d-7360a6b4e67b"))
+			"885d9924-c218-4fdc-8ed7-5ce165b1182a"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -66527,7 +66593,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"b5002505-76a2-4469-8724-b41b483a212f"))
+			"4eecab7a-a3c3-4837-a163-be00517f471e"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -67432,7 +67498,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"a04415c1-4e0d-4cf5-bc87-5ad9d4e3e503"))
+			"9c43061e-c319-40c9-a6a1-fd034830f9bb"))
 	(footprint
 		"SW_MX_HotSwap_PTH"
 		(layer
@@ -68337,14 +68403,14 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"ba111ecc-3ceb-482e-aafa-5277a92337bf"))
+			"26af132e-98d9-480a-a6bc-cac7d0bfec0e"))
 	(footprint
 		"SOIC-16W_7.5x10.3mm_P1.27mm"
 		(layer
 			"F.Cu")
 		(at
 			37.0000
-			155.2500)
+			153.5000)
 		(descr
 			"SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags
@@ -69096,14 +69162,14 @@
 					0
 					0)))
 		(uuid
-			"9a6705cc-7a57-4a7b-80f5-ab293b4dbb9c"))
+			"0ed6978f-c0c7-4c4b-8c71-94fa5bdcbe99"))
 	(footprint
 		"C_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
-			49.0000
-			154.2500)
+			47.5000
+			148.0000)
 		(descr
 			"Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -69322,14 +69388,14 @@
 					0
 					0)))
 		(uuid
-			"9201b064-6e2e-4304-8225-3e48cdbd087a"))
+			"891df163-8f42-4c4a-9f1f-9538da153e96"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			32.6500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -69548,14 +69614,14 @@
 					0
 					0)))
 		(uuid
-			"87002b5b-0703-4ae3-b9f4-fce8523ca9b5"))
+			"83c6a893-a009-4b47-942b-841a21049da5"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			35.5500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -69774,14 +69840,14 @@
 					0
 					0)))
 		(uuid
-			"e11ce1da-4093-43a1-bba3-e01da6d61562"))
+			"b3745c4e-ac60-4e4d-b1ca-e2f07e291460"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			38.4500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -70000,14 +70066,14 @@
 					0
 					0)))
 		(uuid
-			"34c721f5-1273-4ddf-bdd4-d0192fbc903e"))
+			"973cb029-2540-4a7d-97ec-6e5ca6ce4c6d"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			41.3500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -70226,14 +70292,14 @@
 					0
 					0)))
 		(uuid
-			"6b4568d9-c133-44e5-8056-e3adcbbf0387"))
+			"9f676deb-b85b-476f-908a-f94771c252e4"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			32.6500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -70452,14 +70518,14 @@
 					0
 					0)))
 		(uuid
-			"ac389e1c-a0b5-4505-bc0c-0892141fd8cb"))
+			"e30cb338-41f8-48c1-83ff-469f870808f8"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			35.5500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -70678,14 +70744,14 @@
 					0
 					0)))
 		(uuid
-			"e407e076-651c-416f-b4a6-e20e1b4ca008"))
+			"ed48bcf8-8b9f-48f4-83dc-0c57e82835f0"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			38.4500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -70904,14 +70970,14 @@
 					0
 					0)))
 		(uuid
-			"64f9d9e2-6c34-468b-9b41-bab72a3ab66b"))
+			"295cca48-f9c4-4245-be2c-290deb7712e2"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			41.3500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -71130,14 +71196,14 @@
 					0
 					0)))
 		(uuid
-			"b3708a91-b62f-4330-bed6-025848b8c1df"))
+			"964368ff-ec61-4570-ac08-4b4577a3d286"))
 	(footprint
 		"SOIC-16W_7.5x10.3mm_P1.27mm"
 		(layer
 			"F.Cu")
 		(at
 			68.2000
-			155.2500)
+			153.5000)
 		(descr
 			"SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags
@@ -71889,14 +71955,14 @@
 					0
 					0)))
 		(uuid
-			"f729a900-17b7-4bba-8498-18e3693b3e49"))
+			"3e4861c4-784d-4a24-9cfa-763b3f264b2a"))
 	(footprint
 		"C_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
-			80.2000
-			154.2500)
+			78.7000
+			148.0000)
 		(descr
 			"Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -72115,14 +72181,14 @@
 					0
 					0)))
 		(uuid
-			"e08978a3-844c-4fde-92d4-c1794d55a972"))
+			"efada71e-1343-4f61-8f58-f14dfbf547ac"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			63.8500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -72341,14 +72407,14 @@
 					0
 					0)))
 		(uuid
-			"7a96d99c-ca8a-443a-9ee5-46726b740ae8"))
+			"e9c96b38-eda2-408c-a360-0f8441940243"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			66.7500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -72567,14 +72633,14 @@
 					0
 					0)))
 		(uuid
-			"8f840985-7361-4990-9464-915f58aa7215"))
+			"54746989-6710-4dea-ac12-d7648649723e"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			69.6500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -72793,14 +72859,14 @@
 					0
 					0)))
 		(uuid
-			"2b19322a-e420-4fe4-9e21-7f493a7a0603"))
+			"e84dfb2f-22d5-4c2b-8f27-13f82fa1aa38"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			72.5500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -73019,14 +73085,14 @@
 					0
 					0)))
 		(uuid
-			"415da11f-696d-4d7b-bd21-4572353c9def"))
+			"01d69604-fbc2-4286-89ef-ffbfadc0e6c3"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			63.8500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -73245,14 +73311,14 @@
 					0
 					0)))
 		(uuid
-			"b4b8e40c-d6ca-42a7-926a-472a1c71870c"))
+			"f4a917c1-7c50-4568-9efb-42dd1f1f9a72"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			66.7500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -73471,14 +73537,14 @@
 					0
 					0)))
 		(uuid
-			"d5bd3dcc-abbb-4b56-830d-e9346bfe7afd"))
+			"37ace4f3-676c-4be6-8d91-f05238391cb4"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			69.6500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -73697,14 +73763,14 @@
 					0
 					0)))
 		(uuid
-			"f0b15a65-83f4-4029-8a07-020ed3d7f7a2"))
+			"142a4d54-c542-47a3-bfb3-71be56267bc4"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			72.5500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -73923,14 +73989,14 @@
 					0
 					0)))
 		(uuid
-			"4035b4ed-3057-4c98-88eb-0033213af01d"))
+			"6b80aced-75b5-415b-ba12-d84e25816d66"))
 	(footprint
 		"SOIC-16W_7.5x10.3mm_P1.27mm"
 		(layer
 			"F.Cu")
 		(at
 			99.4000
-			155.2500)
+			153.5000)
 		(descr
 			"SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags
@@ -74682,14 +74748,14 @@
 					0
 					0)))
 		(uuid
-			"0dd55430-295e-487f-894f-00871eb74efa"))
+			"f91d43b0-7af6-4aa4-89f2-43530061e7ab"))
 	(footprint
 		"C_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
-			111.4000
-			154.2500)
+			109.9000
+			148.0000)
 		(descr
 			"Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -74908,14 +74974,14 @@
 					0
 					0)))
 		(uuid
-			"ca092db2-6b26-46e0-a3aa-d69d37251bb1"))
+			"cf0bfbd8-3770-4bfb-9833-6cc78965525b"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			95.0500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -75134,14 +75200,14 @@
 					0
 					0)))
 		(uuid
-			"656ca2ad-ee98-48d0-857b-4ff1d59d0aee"))
+			"6e0d76b7-37f4-4ad3-935c-990f8f182dd1"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			97.9500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -75360,14 +75426,14 @@
 					0
 					0)))
 		(uuid
-			"452bc93b-6c2b-425f-899e-698edbd57541"))
+			"60edeef8-104e-47c9-9c5d-57ee664a5c66"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			100.8500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -75586,14 +75652,14 @@
 					0
 					0)))
 		(uuid
-			"8ba79cb6-4d37-44d1-bf3c-e63ac981e8ec"))
+			"7e29511d-cdc3-46a5-958e-e6e4a51c2ae6"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			103.7500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -75812,14 +75878,14 @@
 					0
 					0)))
 		(uuid
-			"a8cecab5-b919-4a76-8aec-a64b7a22bab5"))
+			"a18171dd-37e1-4229-9d61-545915a6b2fd"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			95.0500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -76038,14 +76104,14 @@
 					0
 					0)))
 		(uuid
-			"cca8f694-be79-424c-b4bb-b5d4fdf1dcbf"))
+			"44925e17-fcca-4174-a80a-684b99305644"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			97.9500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -76264,14 +76330,14 @@
 					0
 					0)))
 		(uuid
-			"56d106b5-db51-46a0-b962-13bf2e50cbb2"))
+			"239d8265-5514-413b-9bde-1dae0f918531"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			100.8500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -76490,14 +76556,14 @@
 					0
 					0)))
 		(uuid
-			"d5b67754-384e-43ea-aa68-c58b1e21aa8b"))
+			"268d559a-38f4-4b63-8d2d-12704faa83a0"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			103.7500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -76716,14 +76782,14 @@
 					0
 					0)))
 		(uuid
-			"501a7ea7-63eb-4b2d-a859-7a34d0744fd0"))
+			"242bed49-9b41-4b10-be5d-90272850ffed"))
 	(footprint
 		"SOIC-16W_7.5x10.3mm_P1.27mm"
 		(layer
 			"F.Cu")
 		(at
 			130.6000
-			155.2500)
+			153.5000)
 		(descr
 			"SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags
@@ -77475,14 +77541,14 @@
 					0
 					0)))
 		(uuid
-			"a9e18df9-7658-4bb3-a91b-72b2c7a58159"))
+			"4ea165a6-f64b-4dae-9a96-3eb592347adc"))
 	(footprint
 		"C_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
-			142.6000
-			154.2500)
+			141.1000
+			148.0000)
 		(descr
 			"Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -77701,14 +77767,14 @@
 					0
 					0)))
 		(uuid
-			"a7f282d0-d9c5-4915-bf7f-6e97e56caec6"))
+			"1608a1d5-3466-48a9-a4a1-2c66d5f8cdcc"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			126.2500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -77927,14 +77993,14 @@
 					0
 					0)))
 		(uuid
-			"184f9e72-0ad9-48c4-a927-3a62677046d6"))
+			"9dbf21f0-79cf-4333-b9aa-2b1f38693b01"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			129.1500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -78153,14 +78219,14 @@
 					0
 					0)))
 		(uuid
-			"a254c045-7a1d-4b7e-93c8-878c9c08f7cc"))
+			"3dc42394-14a6-4613-8efd-c461c273d1dd"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			132.0500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -78379,14 +78445,14 @@
 					0
 					0)))
 		(uuid
-			"04d683a4-cf02-4264-9855-f11049d39ee9"))
+			"ef075e70-cb0f-4d47-8f61-5d52e91ac4a6"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			134.9500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -78605,14 +78671,14 @@
 					0
 					0)))
 		(uuid
-			"c5a0527c-2c7f-4481-8361-908f16c5e78c"))
+			"facf4dd9-aef9-4ea1-ac12-e72003e44acf"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			126.2500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -78831,14 +78897,14 @@
 					0
 					0)))
 		(uuid
-			"d1939b0e-4573-488a-a400-0b758bf11467"))
+			"a774147d-0333-442c-9e6e-a425320c9274"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			129.1500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -79057,14 +79123,14 @@
 					0
 					0)))
 		(uuid
-			"a343f730-a0ee-4033-8990-bbeb0803de9d"))
+			"21e52885-daf1-419b-ab1b-235303397c6f"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			132.0500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -79283,14 +79349,14 @@
 					0
 					0)))
 		(uuid
-			"ee29c070-f0fe-43ff-9550-60c1906d0a6f"))
+			"0e8c49ba-9fb2-4de4-a1af-a190094fa44c"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			134.9500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -79509,14 +79575,14 @@
 					0
 					0)))
 		(uuid
-			"26fc4e18-3acb-4e1d-9312-1dd9e4f99629"))
+			"ebb8f503-7c20-485f-86a1-eea0956088b2"))
 	(footprint
 		"SOIC-16W_7.5x10.3mm_P1.27mm"
 		(layer
 			"F.Cu")
 		(at
 			161.8000
-			155.2500)
+			153.5000)
 		(descr
 			"SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags
@@ -80268,14 +80334,14 @@
 					0
 					0)))
 		(uuid
-			"15f46c82-3fcd-4696-8b36-bfc7768f1508"))
+			"6696132c-4221-4145-865d-57abf2efa1e9"))
 	(footprint
 		"C_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
-			173.8000
-			154.2500)
+			172.3000
+			148.0000)
 		(descr
 			"Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -80494,14 +80560,14 @@
 					0
 					0)))
 		(uuid
-			"83d5bca8-08e8-4fc5-8203-99d8272d2eb3"))
+			"380aa470-fc21-4064-946d-4f111118c928"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			157.4500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -80720,14 +80786,14 @@
 					0
 					0)))
 		(uuid
-			"e84db41d-cc1e-4458-ab5c-8a9a21cb87b2"))
+			"8c9c061d-660a-4c72-a7fa-0f39e4bfe396"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			160.3500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -80946,14 +81012,14 @@
 					0
 					0)))
 		(uuid
-			"72c6b29b-80a1-466d-aef6-9e89eddd016a"))
+			"7cefe429-2d37-4022-b548-52ab02398a6f"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			163.2500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -81172,14 +81238,14 @@
 					0
 					0)))
 		(uuid
-			"1f9b4e21-3615-4bdb-8713-5b7df314c833"))
+			"56a0d102-604b-47c7-ac8e-1c1a224b9524"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			166.1500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -81398,14 +81464,14 @@
 					0
 					0)))
 		(uuid
-			"b25b784a-4d00-419f-af34-010d1044f7cd"))
+			"1b6e4a29-a51f-49f5-a585-f282df7c7b63"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			157.4500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -81624,14 +81690,14 @@
 					0
 					0)))
 		(uuid
-			"b2c1e1c3-49f7-4104-b359-800af62f9d0a"))
+			"3f24af40-ba58-4c62-91de-0112a89c8de9"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			160.3500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -81850,14 +81916,14 @@
 					0
 					0)))
 		(uuid
-			"fc0cb75b-aa7f-4d05-9fcd-0370ce37a4cb"))
+			"096811da-4801-47c3-9f3f-aa1e64dd88cb"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			163.2500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -82076,14 +82142,14 @@
 					0
 					0)))
 		(uuid
-			"f3d1a6bb-6608-4976-9a9b-dea4895d236c"))
+			"1f492edb-8a4c-443b-a53b-3ddd5df7752c"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			166.1500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -82302,14 +82368,14 @@
 					0
 					0)))
 		(uuid
-			"fb2ea564-b420-437c-a929-a5c5ca733d7c"))
+			"5854c0f2-4901-4528-b2c6-80c68b766ea6"))
 	(footprint
 		"SOIC-16W_7.5x10.3mm_P1.27mm"
 		(layer
 			"F.Cu")
 		(at
 			193.0000
-			155.2500)
+			153.5000)
 		(descr
 			"SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags
@@ -83061,14 +83127,14 @@
 					0
 					0)))
 		(uuid
-			"317e37a0-d021-4d11-83c0-190438a41783"))
+			"f68d9eb5-b800-440a-8486-d24dd122e6c4"))
 	(footprint
 		"C_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
-			205.0000
-			154.2500)
+			203.5000
+			148.0000)
 		(descr
 			"Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -83287,14 +83353,14 @@
 					0
 					0)))
 		(uuid
-			"35e2d76c-3592-4af7-8dd4-a34ffdbc3b36"))
+			"f34a78de-7ad8-46ce-b972-45a3cd927932"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			188.6500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -83513,14 +83579,14 @@
 					0
 					0)))
 		(uuid
-			"dcc44b3c-3e7f-496b-95a8-e7579e3b95d7"))
+			"7b20a1c2-4dc9-40dc-a65d-2e2e87fb16e5"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			191.5500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -83739,14 +83805,14 @@
 					0
 					0)))
 		(uuid
-			"5c825d35-4979-4248-9f5a-d9730b479dc8"))
+			"38c87c95-ed5c-4953-96a1-b4794271ad42"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			194.4500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -83965,14 +84031,14 @@
 					0
 					0)))
 		(uuid
-			"b75747df-474d-4f88-bec1-1e0d7ab3c459"))
+			"d47f16d5-d78f-4995-8f38-ba6e9f602273"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			197.3500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -84191,14 +84257,14 @@
 					0
 					0)))
 		(uuid
-			"e5d9a154-d6c7-4747-a776-e9e4c1df0a7e"))
+			"018a8805-bb8d-4591-859e-abc691463eef"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			188.6500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -84417,14 +84483,14 @@
 					0
 					0)))
 		(uuid
-			"651c0c21-42a2-4e2f-af22-94f5d44b8ed2"))
+			"08f62967-debb-4551-b0aa-c26ddbf8056b"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			191.5500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -84643,14 +84709,14 @@
 					0
 					0)))
 		(uuid
-			"2b90ed25-4014-46c5-a2bd-200863bb4245"))
+			"a8163b49-be17-4b7d-a9c1-0390d809ec80"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			194.4500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -84869,14 +84935,14 @@
 					0
 					0)))
 		(uuid
-			"c5d1f00d-eea3-46f8-911e-aaee3ab87d62"))
+			"b5bc1bec-6c8c-454e-b4fa-d7b3b984a9be"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			197.3500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -85095,14 +85161,14 @@
 					0
 					0)))
 		(uuid
-			"879549cf-1a26-40b8-a254-5b098f143f1f"))
+			"a1108a59-9400-4fe0-b532-800b57596ce3"))
 	(footprint
 		"SOIC-16W_7.5x10.3mm_P1.27mm"
 		(layer
 			"F.Cu")
 		(at
 			224.2000
-			155.2500)
+			153.5000)
 		(descr
 			"SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags
@@ -85854,14 +85920,14 @@
 					0
 					0)))
 		(uuid
-			"bc006df9-9659-46e8-9e42-15edc59745ba"))
+			"aac78590-a64f-498b-abe8-418a215b254d"))
 	(footprint
 		"C_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
-			236.2000
-			154.2500)
+			234.7000
+			148.0000)
 		(descr
 			"Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -86080,14 +86146,14 @@
 					0
 					0)))
 		(uuid
-			"c9f95846-0ce2-451a-86e6-15dd4bf0f1c2"))
+			"62ca22ac-b3b8-4446-b536-76dbd82e598f"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			219.8500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -86306,14 +86372,14 @@
 					0
 					0)))
 		(uuid
-			"65e605a2-e9a8-4b5e-825e-62d236b57e12"))
+			"7f0b9d0f-e138-45b6-be50-899f92521dbe"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			222.7500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -86532,14 +86598,14 @@
 					0
 					0)))
 		(uuid
-			"a6c9657e-a486-4fea-8da2-b4da6cca8fb4"))
+			"b65868cd-a9e2-409f-bec7-b00dda7f6f8a"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			225.6500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -86758,14 +86824,14 @@
 					0
 					0)))
 		(uuid
-			"f8543a5d-c608-4198-ba40-d3bd2965e0aa"))
+			"3fce5ca8-e661-4eba-b5bc-c58dedad1e7e"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			228.5500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -86984,14 +87050,14 @@
 					0
 					0)))
 		(uuid
-			"cf40a4c8-8198-48f8-8dfe-ddc26382eb39"))
+			"3fcd7603-55b5-4b7c-95d5-db6550697670"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			219.8500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -87210,14 +87276,14 @@
 					0
 					0)))
 		(uuid
-			"a74ab3b3-e889-4121-9421-a6966ac5a6c9"))
+			"c7c9e6d3-8ae7-4959-8cf0-68bc43ad3060"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			222.7500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -87436,14 +87502,14 @@
 					0
 					0)))
 		(uuid
-			"4058ff6f-42d4-4dbd-bc98-212da4561e57"))
+			"956b841b-00be-4365-98d7-abd939423cec"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			225.6500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -87662,14 +87728,14 @@
 					0
 					0)))
 		(uuid
-			"b72fe268-b23a-480c-ba12-83c4dc37cfef"))
+			"afef9d91-4461-4cc3-a087-e481cee659ab"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			228.5500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -87888,14 +87954,14 @@
 					0
 					0)))
 		(uuid
-			"d24b5921-8be9-47e6-af1a-2baf7de8fa38"))
+			"33d863e8-9c22-4c32-849c-325cb11fda8d"))
 	(footprint
 		"SOIC-16W_7.5x10.3mm_P1.27mm"
 		(layer
 			"F.Cu")
 		(at
 			255.4000
-			155.2500)
+			153.5000)
 		(descr
 			"SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags
@@ -88647,14 +88713,14 @@
 					0
 					0)))
 		(uuid
-			"f9156efe-d939-4529-8c6d-b5b9d4ca28ef"))
+			"19dfbe61-795c-4684-bd8b-0c2418adf82f"))
 	(footprint
 		"C_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
-			267.4000
-			154.2500)
+			265.9000
+			148.0000)
 		(descr
 			"Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -88873,14 +88939,14 @@
 					0
 					0)))
 		(uuid
-			"f26629da-1f48-4ef6-a8fc-b69b545900ad"))
+			"5fa5ebb2-2f1f-4221-a5d3-1f3d3ef3f302"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			251.0500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -89099,14 +89165,14 @@
 					0
 					0)))
 		(uuid
-			"7c851a37-76e8-4170-a919-3962cbb0b183"))
+			"41908651-2358-4194-b0e3-8b67623246a7"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			253.9500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -89325,14 +89391,14 @@
 					0
 					0)))
 		(uuid
-			"10a340e6-3ac6-4dc3-95e1-9ee9f745d3cc"))
+			"a193185d-f85a-48af-9de6-ca96497939c6"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			256.8500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -89551,14 +89617,14 @@
 					0
 					0)))
 		(uuid
-			"1e752664-2192-4cc6-8e61-1db4c50c660b"))
+			"4fe8304a-bb2e-4553-b66c-9120bd2b819d"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			259.7500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -89777,14 +89843,14 @@
 					0
 					0)))
 		(uuid
-			"fed61773-95a8-4bf6-a32a-03f91de245f8"))
+			"13c9edd6-e4ce-422c-8352-d4a334ca7928"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			251.0500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -90003,14 +90069,14 @@
 					0
 					0)))
 		(uuid
-			"fbe1354d-f941-4df4-83b2-308dd77561a8"))
+			"cb34184d-c9a7-44ef-bfa0-c633ddb05d8b"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			253.9500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -90229,14 +90295,14 @@
 					0
 					0)))
 		(uuid
-			"75038e8a-7be5-42bd-9e50-dfe7a14f3dfb"))
+			"550bd26d-4c83-455b-9f18-83161959fbc9"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			256.8500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -90455,14 +90521,14 @@
 					0
 					0)))
 		(uuid
-			"ee5cf36e-505f-4fa1-9406-4d81859d334c"))
+			"e74b05e7-f427-47ca-835f-1ba4af85e305"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			259.7500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -90681,14 +90747,14 @@
 					0
 					0)))
 		(uuid
-			"4f6746e4-03c0-4240-9a09-cc56cd4e22f4"))
+			"84179595-e65d-4b44-96b3-5b1cb83663a7"))
 	(footprint
 		"SOIC-16W_7.5x10.3mm_P1.27mm"
 		(layer
 			"F.Cu")
 		(at
 			286.6000
-			155.2500)
+			153.5000)
 		(descr
 			"SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags
@@ -91440,14 +91506,14 @@
 					0
 					0)))
 		(uuid
-			"9b53963c-c631-4c0c-89cc-e5ac788cdb6f"))
+			"53e696c4-6e4b-4451-b669-0d6fcd3b8546"))
 	(footprint
 		"C_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
-			298.6000
-			154.2500)
+			297.1000
+			148.0000)
 		(descr
 			"Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -91666,14 +91732,14 @@
 					0
 					0)))
 		(uuid
-			"2416880e-68ce-487a-9058-cd682a80bf37"))
+			"c5fe4343-01a7-446b-bd4d-185a66cbf8b2"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			282.2500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -91892,14 +91958,14 @@
 					0
 					0)))
 		(uuid
-			"8897b14e-372f-4b54-8ea2-4bbd8fda636b"))
+			"5d196871-bd3c-49d4-89b6-7c82921f1e1a"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			285.1500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -92118,14 +92184,14 @@
 					0
 					0)))
 		(uuid
-			"d0a75177-20f5-482e-82d8-de612bfa24e6"))
+			"3360b39f-cae8-4184-bb34-8c4570f2a8d4"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			288.0500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -92344,14 +92410,14 @@
 					0
 					0)))
 		(uuid
-			"52af6ddb-b22d-44a4-8760-ea7283c6581e"))
+			"f06e7b42-542b-423d-9db9-5419c261af6f"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			290.9500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -92570,14 +92636,14 @@
 					0
 					0)))
 		(uuid
-			"9b3cc6b1-dcc3-405a-93d4-4765affd665a"))
+			"10b88102-4c50-4d6a-8aa3-80f0ac573905"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			282.2500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -92796,14 +92862,14 @@
 					0
 					0)))
 		(uuid
-			"cbfb2071-5f61-4305-aa63-3b524c2f5d9a"))
+			"864f0f4e-6018-49a3-849d-b09973ba82e5"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			285.1500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -93022,14 +93088,14 @@
 					0
 					0)))
 		(uuid
-			"75c31621-3834-4529-b27e-408274008587"))
+			"3802915a-02f8-4426-b6e1-9bb4f271f5a0"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			288.0500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -93248,14 +93314,14 @@
 					0
 					0)))
 		(uuid
-			"b0e0030a-e08f-4fd0-88e4-73a6a1659344"))
+			"8b8fccd3-62ef-4525-ada7-c0f7d3a94e25"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			290.9500
-			148.1000)
+			146.3500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -93474,14 +93540,14 @@
 					0
 					0)))
 		(uuid
-			"c021a67b-200a-41c4-9ef1-55bf74d3f4bd"))
+			"2496a8c9-9608-47c6-a590-ff26e5ca4403"))
 	(footprint
 		"SOIC-16W_7.5x10.3mm_P1.27mm"
 		(layer
 			"F.Cu")
 		(at
 			317.8000
-			155.2500)
+			153.5000)
 		(descr
 			"SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags
@@ -94233,14 +94299,14 @@
 					0
 					0)))
 		(uuid
-			"4957ef6d-fbf6-43e1-b442-948b413fc82f"))
+			"a48a21a0-7cf8-4b25-b721-59e26571bac4"))
 	(footprint
 		"C_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
-			329.8000
-			154.2500)
+			328.3000
+			148.0000)
 		(descr
 			"Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -94459,14 +94525,14 @@
 					0
 					0)))
 		(uuid
-			"4adb296a-89e8-4ac6-aac6-d4f8aa19ffd1"))
+			"c9451160-ec36-4c61-bd38-cf20ae905af8"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			313.4500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -94685,14 +94751,14 @@
 					0
 					0)))
 		(uuid
-			"371b0efa-b83a-4cd1-a0ce-a2b6e06d2be5"))
+			"f3878192-69dd-4367-afc7-af0926a883b4"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			316.3500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -94911,14 +94977,14 @@
 					0
 					0)))
 		(uuid
-			"0e3876fa-7438-4b2a-bbe6-8afc01d5b3d4"))
+			"5713f2e3-9bee-4e7a-b030-21a8a581378d"))
 	(footprint
 		"R_0603_1608Metric"
 		(layer
 			"F.Cu")
 		(at
 			319.2500
-			145.7000)
+			143.9500)
 		(descr
 			"Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags
@@ -95137,7 +95203,7 @@
 					0
 					0)))
 		(uuid
-			"fd975bc2-b53a-40d1-ba00-5668e46b6832"))
+			"9017d2ea-8143-4926-b7df-7d943c86e13e"))
 	(footprint
 		"PinHeader_1x20_P2.54mm_Vertical"
 		(layer
@@ -95614,7 +95680,10 @@
 				"*.Cu"
 				"*.Mask")
 			(remove_unused_layers
-				no))
+				no)
+			(net
+				96
+				"LED_DATA"))
 		(pad
 			"10"
 			thru_hole
@@ -95812,7 +95881,10 @@
 				"*.Cu"
 				"*.Mask")
 			(remove_unused_layers
-				no))
+				no)
+			(net
+				95
+				"V5"))
 		(embedded_fonts
 			no)
 		(model
@@ -95833,7 +95905,7 @@
 					0
 					0)))
 		(uuid
-			"9e91f363-ca72-4e4f-aa2f-4cfa04c6d3d9"))
+			"1ee6ff1e-cb12-41fe-ad11-48f17012bb52"))
 	(footprint
 		"PinHeader_1x20_P2.54mm_Vertical"
 		(layer
@@ -96511,7 +96583,7 @@
 					0
 					0)))
 		(uuid
-			"936a1020-7791-44d3-878c-ea67efc6a878"))
+			"6867543f-4634-405d-b8a2-2955b81a1b3f"))
 	(footprint
 		"RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm"
 		(layer
@@ -97193,7 +97265,7 @@
 					0
 					0)))
 		(uuid
-			"c831487e-a9f4-4866-ba22-7b4830995d1a"))
+			"b7e548b2-b22d-4b15-87ae-fc65dba530e8"))
 	(footprint
 		"USB_C_Receptacle_GCT_USB4085"
 		(layer
@@ -97959,7 +98031,2867 @@
 					0
 					0)))
 		(uuid
-			"7fa2f5a3-7650-4cb6-bebf-ec4432b9e207"))
+			"340e9858-db58-4d9c-b53e-d99414f09a2c"))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"8149017a-26de-4aeb-b5f2-be788f63482e")
+		(at
+			26.000
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"f6e2f7dd-ea83-4e33-b2cb-2b1403fbd432"))
+		(property
+			"Reference"
+			"L01"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"b904fff6-284b-420e-ac82-02298c3e52c3")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"6ccac16d-4da9-4483-a7dc-45338cac840c")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"61014f7d-9732-4900-8a8a-be64e64193ec"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				97
+				"LED_D0")
+			(uuid
+				"02983966-07b9-4a5b-b917-d6996673578f"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"32987594-96af-4134-9791-2e9fd903e6db"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				96
+				"LED_DATA")
+			(uuid
+				"09d2da05-e39d-4ed4-b92e-495aeb6d90a0")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"dbf25f99-8a1b-45a2-9a59-ca23681eb90b")
+		(at
+			41.211
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"c8df9871-7fba-489c-bca3-62045fc7bf7d"))
+		(property
+			"Reference"
+			"L02"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"54e01969-13a7-4821-b26f-7e84c47702bd")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"61fbbbdd-83f4-471e-b3c4-88df28979821")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"c57dc878-d53e-4419-8a27-96b42b1d5ebb"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				98
+				"LED_D1")
+			(uuid
+				"ed458722-52cd-44db-bf06-827d9c5d8aea"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"f555502c-a961-4a21-89aa-4907ec8a11e9"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				97
+				"LED_D0")
+			(uuid
+				"c43681e7-944d-4d1c-8a8d-450e97fc91d0")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"2cb22e0f-8f4b-4b1c-bafc-60a80782f5cf")
+		(at
+			56.421
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"8c83b2de-5aa1-4225-8b8c-38c3a7979e36"))
+		(property
+			"Reference"
+			"L03"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"7c52eb96-e8b3-46ad-af9c-fd0ed2865d34")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"9a9613e1-ae78-4a97-a208-07230c10a137")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"910cf1b3-2661-4436-b1e2-270b91cd4e59"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				99
+				"LED_D2")
+			(uuid
+				"d72dfbe9-65cf-4f41-a263-6a454d72adb6"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"d3bba7f7-0cb5-42b2-8c76-acbbeddf3e03"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				98
+				"LED_D1")
+			(uuid
+				"c02bb876-00b5-4b82-9406-fca9e9c712f7")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"61e00379-197f-4cf9-b405-93aad7ba598e")
+		(at
+			71.632
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"c7bba723-7f5b-4c93-8a9b-fdd1386ba88c"))
+		(property
+			"Reference"
+			"L04"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"95cb6362-ef25-48de-86a5-0dabb032af77")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"19fa3367-8636-41ad-9939-302fb966b31c")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"28d885f0-54bf-482e-a4d5-2f8c73446d02"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				100
+				"LED_D3")
+			(uuid
+				"422e5baf-5287-4475-84f7-df6242776535"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"6cb7c78c-40ed-4c3d-aad4-42bb4e58898d"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				99
+				"LED_D2")
+			(uuid
+				"055bd25c-4958-42d1-92ea-2624137e268e")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"a3020f56-92bd-4959-80f7-a1d6ec0ab290")
+		(at
+			86.842
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"e5a03bed-f7a0-4f6d-9ae9-1bed83d71272"))
+		(property
+			"Reference"
+			"L05"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"c2370387-1acc-4cbf-b8f2-20ee45fecbd0")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"e9902235-0d12-4973-aa5d-2839e9c3e106")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"3fab73fb-2b59-4b59-889b-f5b52dc1df51"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				101
+				"LED_D4")
+			(uuid
+				"fd52d6a2-b8b1-4bf5-9fa1-0e064195425d"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"6d90d1ee-4fc7-47fb-a95f-04e77267a7aa"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				100
+				"LED_D3")
+			(uuid
+				"630fd916-3088-4dc1-9051-f7b38c1b0a65")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"96dc032f-4c95-4305-bef9-b9ae59865bf1")
+		(at
+			102.053
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"ccb8b0b6-c61d-48e8-bdc9-dcd0ac574368"))
+		(property
+			"Reference"
+			"L06"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"b99debb7-10d3-4058-9338-f852b1467ed0")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"b9981cc0-56cb-4c8b-897c-8356724884b2")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"ec9864de-1db3-456b-bc6a-a91f71260316"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				102
+				"LED_D5")
+			(uuid
+				"5744320f-59fd-4ddc-9a68-3624c174e39f"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"6feaf24f-2166-407c-9bb1-1e0d89378988"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				101
+				"LED_D4")
+			(uuid
+				"eea9166d-1787-4b21-9634-7b6f2353f623")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"5ebe2a7e-33b1-4a9e-ae30-b46d608abdb4")
+		(at
+			117.263
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"2049b260-d3b3-44bd-b59a-4130716cb994"))
+		(property
+			"Reference"
+			"L07"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"7e0101d3-ee7e-495c-ba01-0e0aefb154cc")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"451170ca-606a-441d-92ec-372c7943db72")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"c1e006d4-fff5-4ab5-be94-14223c1fe759"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				103
+				"LED_D6")
+			(uuid
+				"520cb861-0e72-41b9-af3d-29ea1643d15c"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"7660ca28-4703-4769-bdb1-dc6775a68812"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				102
+				"LED_D5")
+			(uuid
+				"5ccfd8e9-d9d8-4786-b0c7-55bda7f548a7")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"49f24bb6-f3cc-4e55-bdcd-aa0107e16edb")
+		(at
+			132.474
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"0c61a1e9-58ef-4073-884e-7bd27e5748e8"))
+		(property
+			"Reference"
+			"L08"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"8ef5c526-07e6-4f9b-ba28-3639e8cf118d")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"cc876660-8385-4030-9e51-7f6c64225dc2")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"d4a5907c-8f34-482d-b0f4-1426592d6de2"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				104
+				"LED_D7")
+			(uuid
+				"e8c3b063-09ea-4225-8835-2b39f8bbc62c"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"e5fe6537-718a-4f7b-a40c-baeae5f4e8a1"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				103
+				"LED_D6")
+			(uuid
+				"8bd760db-5f76-4406-ba6d-5268cba4a2ac")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"d5def4c5-3457-4b42-9b49-616184d11224")
+		(at
+			147.684
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"25941afe-6f81-4d61-9253-8443de9cad60"))
+		(property
+			"Reference"
+			"L09"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"23177d9f-b1fa-4925-a3a2-13a5fe2d5564")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"e44a2569-b2a7-4be4-87da-3fb6856a805b")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"8c908183-cd88-4e24-aba2-31237594b1ce"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				105
+				"LED_D8")
+			(uuid
+				"4d32dc96-cd2b-4824-9ff9-daa5b04bfa6a"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"3cb3757b-6466-4b27-9744-79f1adb5cebc"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				104
+				"LED_D7")
+			(uuid
+				"d2121437-0874-44f0-8f1f-f2369ccb1797")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"28d398bc-e718-40a0-bf5c-54df57767320")
+		(at
+			162.895
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"836e4fb1-aedc-4266-9c18-91777245b499"))
+		(property
+			"Reference"
+			"L10"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"39d6f529-91fb-4c25-a65e-d4496e35e969")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"8adf571f-9c4a-4246-a668-0f821dd6c65b")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"e6436ad9-30e7-43de-8e58-343e49acbcef"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				106
+				"LED_D9")
+			(uuid
+				"1235cd5d-5ce6-42d4-ae4d-49c713e11d96"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"970ac6f6-3ff1-4d09-9977-59cedfedb961"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				105
+				"LED_D8")
+			(uuid
+				"08d3039d-3be0-42f1-9c37-b5a928db63d2")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"791742ba-fef8-4a6a-8561-a39bd9a1677c")
+		(at
+			178.105
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"443f7d69-dcbc-469b-bfcb-0a0a1472d0df"))
+		(property
+			"Reference"
+			"L11"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"548ff083-e9f5-4712-aa6b-2b03d7328901")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"667d6092-509d-440c-a4d8-9834817eee67")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"0aefecbd-08b4-475c-ba42-108f0e244e4f"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				107
+				"LED_D10")
+			(uuid
+				"65f57780-1534-4496-ba6e-ba493383e467"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"d06aa0d2-bce8-4d41-9887-0e2c0acc424a"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				106
+				"LED_D9")
+			(uuid
+				"6614b7af-e0b0-4924-bdfe-95475b753a1a")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"04479a4b-5134-4e91-b949-2856ad4b08c6")
+		(at
+			193.316
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"2a85dedd-5d25-4d12-9a83-ab8ad26d2dc3"))
+		(property
+			"Reference"
+			"L12"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"847aec3c-04a9-49d0-bf79-d80d63353ed0")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"95c59550-84b9-4bd1-b7df-51ad2d6a5582")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"0078a2eb-e72f-4c43-b8fe-9da89867d0e0"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				108
+				"LED_D11")
+			(uuid
+				"4dd9c18b-899b-4642-8c18-81d193d57c2a"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"c2e46a6a-f7d4-4c13-9b04-e1189e9b6f28"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				107
+				"LED_D10")
+			(uuid
+				"6e61b626-7bf4-4c5e-a1c8-e0a52dc95639")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"da0c1010-6fc6-4d16-a114-090bf9eda638")
+		(at
+			208.526
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"232605f6-e9c0-4533-b6a6-08848f8228da"))
+		(property
+			"Reference"
+			"L13"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"9149df27-c50c-426c-bffb-164af6a4f7e4")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"8c6d14d1-1815-4e63-899f-fdc3d5680916")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"22e17290-aed9-4ff5-bdcd-51bcf74efcbc"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				109
+				"LED_D12")
+			(uuid
+				"caf3b1cc-66ed-4177-942e-7acc99dd8f99"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"fe98d680-812e-4991-91ee-6e32c0d7f18f"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				108
+				"LED_D11")
+			(uuid
+				"4821d523-e5f5-47a8-9a32-8e9cab931d79")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"2f3e897c-a6cd-4c02-b332-96fbfff1e18d")
+		(at
+			223.737
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"244335a5-7017-479b-99cb-2c706489c2b0"))
+		(property
+			"Reference"
+			"L14"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"627ec9b6-62ce-4e63-a7e5-fdbf76a4d774")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"d5d482c3-8a7f-437b-af83-8ad97ac38b7e")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"83e1666c-9510-44d4-a344-290255084337"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				110
+				"LED_D13")
+			(uuid
+				"bacab43d-41a0-4999-b83c-dccedc9eabc1"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"f09802ce-a180-4a5d-b7d3-56885ae7e3fb"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				109
+				"LED_D12")
+			(uuid
+				"b26f2e26-47f1-4bf8-8958-af8430310fc3")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"6728fb5b-f06d-4e8f-a495-8e9adcc2f760")
+		(at
+			238.947
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"da01df3b-1ef3-419d-b36d-09d5154b5c2e"))
+		(property
+			"Reference"
+			"L15"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"1cb5d7c8-a4af-40fd-bca1-dd4682e2768a")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"d7ba92a7-5c77-4c0d-8d5c-62a6276d7ae3")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"19268b99-b23a-41d9-92de-7b63f75c4366"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				111
+				"LED_D14")
+			(uuid
+				"dfbb34a0-b896-478f-8762-199bf6b293a7"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"dd49974c-646d-4738-9a67-71c3b6f3907e"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				110
+				"LED_D13")
+			(uuid
+				"b59b5615-9fe9-4d88-85a7-75c6242751d4")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"f505c2b5-71f1-48f6-b4eb-e29652768647")
+		(at
+			254.158
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"b57e392b-38cd-465f-ae8b-08b0f7f6a509"))
+		(property
+			"Reference"
+			"L16"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"b91cb108-9451-4e47-9cf4-ff2065a6b678")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"8726d416-a830-497c-a90c-fdfd9bf7f181")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"d968c2fe-622f-4eac-9dad-dbcd9ff41a61"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				112
+				"LED_D15")
+			(uuid
+				"2ab81098-5d77-46ba-80e5-938ae82e7308"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"0d235805-2c19-452e-8e1c-46f21d6db97e"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				111
+				"LED_D14")
+			(uuid
+				"1b65a3ec-fa85-42d6-8947-7736cb910fbb")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"a6191de7-d1bb-4717-b052-16c4e622e736")
+		(at
+			269.368
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"9f6bf310-61b6-490c-a53d-797bcd1eb76e"))
+		(property
+			"Reference"
+			"L17"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"162d0cae-ac32-416c-823f-5445ad0fa4f8")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"d2c40f1e-5c52-4b38-8fd8-1a6cf2e31346")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"d4d68e57-8d76-4d02-a1bc-23cd6d9a2740"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				113
+				"LED_D16")
+			(uuid
+				"a025c31e-55ce-4585-94dc-004de0cb34cc"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"d6c5c145-14d1-4306-a2ae-8e46f62471f7"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				112
+				"LED_D15")
+			(uuid
+				"584fcf11-8248-423a-a0e9-3c0eb74c4107")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"c8e7513a-2430-4256-8bcd-318b1b5c4bc8")
+		(at
+			284.579
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"6c5f0144-d9ab-468f-b5b6-15ec4c38ffa4"))
+		(property
+			"Reference"
+			"L18"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"56283eb8-8eb4-422c-b9d2-43edb2712e87")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"13e4c166-daf6-447d-abf6-f1452d1bb456")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"608b18d3-75bb-4036-acc5-d614c768f178"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				114
+				"LED_D17")
+			(uuid
+				"f46a1e8e-ce2c-4826-8e43-bd23effae239"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"46779e48-5fef-4809-968a-a61d15f84f1e"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				113
+				"LED_D16")
+			(uuid
+				"892bdecf-f4ad-46af-a786-093f450cf4d6")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"deb47e37-4821-4fe9-a304-52d2d84122a0")
+		(at
+			299.789
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"534da6b9-4556-4eec-ae66-6c9f69d44316"))
+		(property
+			"Reference"
+			"L19"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"6194745d-c8b5-4ba7-a73d-a45cc16ee6f6")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"04fde202-9033-4427-90aa-c24006d2a5e7")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"5c72090b-0320-4356-bf07-ffbde3634fd7"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				115
+				"LED_D18")
+			(uuid
+				"522fe0a7-bc4d-4cb7-8836-7c5249c6e54a"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"3a9e5f60-8459-4d58-816e-3948a780689c"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				114
+				"LED_D17")
+			(uuid
+				"58c7a3f0-7d86-4853-a142-123dbf7baa1a")))
+	(footprint
+		"LED_SK6812MINI-E"
+		(layer
+			"B.Cu")
+		(uuid
+			"4d728a8f-00ee-4301-ad24-42333ffcb569")
+		(at
+			315.000
+			161.400)
+		(attr
+			smd)
+		(descr
+			"RGB underglow LED, provision only")
+		(fp_rect
+			(start
+				-1.6
+				-1.4)
+			(end
+				1.6
+				1.4)
+			(stroke
+				(width
+					0.12)
+				(type
+					solid))
+			(fill
+				none)
+			(layer
+				"B.SilkS")
+			(uuid
+				"4b7b76a9-9d19-4d0f-b097-f707d2d4ee07"))
+		(property
+			"Reference"
+			"L20"
+			(at
+				0
+				-2.6
+				0)
+			(layer
+				"B.SilkS")
+			(uuid
+				"2b76ea73-0233-4118-b3ad-751e3efc1dce")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(property
+			"Value"
+			"SK6812MINI-E"
+			(at
+				0
+				2.6
+				0)
+			(layer
+				"B.Fab")
+			(uuid
+				"cf4ca3f7-3c78-4cbc-a5d5-0fd677f4010c")
+			(effects
+				(font
+					(size
+						0.8
+						0.8))
+				(hide
+					yes)))
+		(pad
+			1
+			smd
+			rect
+			(at
+				-1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				95
+				"V5")
+			(uuid
+				"c2171e46-8a7b-4ba2-8bc0-6de028ee7279"))
+		(pad
+			2
+			smd
+			rect
+			(at
+				1.45
+				-0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				116
+				"LED_D19")
+			(uuid
+				"92e53689-5f18-469f-a075-d499ce74b075"))
+		(pad
+			3
+			smd
+			rect
+			(at
+				1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				76
+				"GND")
+			(uuid
+				"05d830f4-90eb-4396-8c88-02530daca92c"))
+		(pad
+			4
+			smd
+			rect
+			(at
+				-1.45
+				0.75)
+			(size
+				0.85
+				0.85)
+			(layers
+				"B.Cu"
+				"B.Mask"
+				"B.Paste")
+			(net
+				115
+				"LED_D18")
+			(uuid
+				"afc44d5a-3d18-41e6-9c72-8705fb9358b1")))
 	(footprint
 		"MountingHole_3.2mm_M3"
 		(layer
@@ -98114,7 +101046,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"e9b53bf6-cec1-4f14-b608-7bb637627334"))
+			"f6aaf41a-6191-47f5-9ef3-7f6d88b1051c"))
 	(footprint
 		"MountingHole_3.2mm_M3"
 		(layer
@@ -98269,7 +101201,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"5252e4e7-4bad-4219-9bb5-950537a5119e"))
+			"acf47436-d1ff-4646-b35e-7d08a6d51cb1"))
 	(footprint
 		"MountingHole_3.2mm_M3"
 		(layer
@@ -98424,7 +101356,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"518c9930-bae9-488b-913f-f3b67d7cdfe0"))
+			"2bfe3b10-1466-4ba5-8752-7d7452b124dd"))
 	(footprint
 		"MountingHole_3.2mm_M3"
 		(layer
@@ -98579,7 +101511,7 @@
 		(embedded_fonts
 			no)
 		(uuid
-			"3a1479f8-3229-4761-9794-5cb5ad4c7528"))
+			"bff50f94-74bf-4626-bf58-342dd05631d8"))
 	(gr_line
 		(start
 			0.0000
@@ -98595,7 +101527,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"84e8910d-5f54-4839-b1bc-132f72e0d31e"))
+			"2d0883d8-6531-46b9-b846-2b591a4194c3"))
 	(gr_line
 		(start
 			337.8000
@@ -98611,7 +101543,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"8c142076-bb58-4a99-8e28-b8a5f686cb8e"))
+			"7024d8be-c790-4d6a-8cf8-e74d1d4c2a3d"))
 	(gr_line
 		(start
 			337.8000
@@ -98627,7 +101559,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"11f246b1-1d17-4ec7-8795-2dffe28c802e"))
+			"cf2a1ca4-963f-40ed-b0e0-86a79e2f9038"))
 	(gr_line
 		(start
 			0.0000
@@ -98643,7 +101575,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"4f2fce11-9267-445c-829f-f491145097fe"))
+			"b4f30d14-9b1a-49dd-bee5-32de95204ff0"))
 	(gr_line
 		(start
 			26.0000
@@ -98659,7 +101591,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"e1b6f7dc-26b8-4cc3-b5a5-f0a1c135be0d"))
+			"48332e71-202d-47b3-98f4-5bf68cb47989"))
 	(gr_line
 		(start
 			92.0000
@@ -98675,7 +101607,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"716ce6d4-077c-45fd-bf8d-76efe92eb5a2"))
+			"ef5d57de-0456-463b-ada3-431d7dd62dc8"))
 	(gr_line
 		(start
 			92.0000
@@ -98691,7 +101623,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"5d786c42-7a75-443d-83f4-c923115a644c"))
+			"4bb77782-31a3-4be8-91dc-637eeddd318a"))
 	(gr_line
 		(start
 			26.0000
@@ -98707,7 +101639,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"70a475c6-d4ea-4600-a771-05aed1bb5d81"))
+			"7cdad1e4-7abf-43bc-997a-6ae820ebfa9d"))
 	(gr_line
 		(start
 			100.0000
@@ -98723,7 +101655,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"9a0bd856-c4fc-491b-b317-e8f518bacac8"))
+			"3babc15c-264e-411d-a2bf-4de3812ac5f5"))
 	(gr_line
 		(start
 			164.0000
@@ -98739,7 +101671,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"532cbab2-cca4-4868-83b1-9003fe17afd3"))
+			"a2cb7e6f-73be-4778-aadb-79deb64dd2c5"))
 	(gr_line
 		(start
 			164.0000
@@ -98755,7 +101687,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"bd8ee277-e33a-43ad-9e3f-2f107175fcca"))
+			"7eefb54d-5784-4ad5-bfab-0eaca7a27ee2"))
 	(gr_line
 		(start
 			100.0000
@@ -98771,7 +101703,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"a3bfcb24-5352-49df-9f62-7756f646afc9"))
+			"d96d6fbc-c29d-4a43-805e-d2b09082c434"))
 	(gr_line
 		(start
 			172.0000
@@ -98787,7 +101719,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"139b7518-a581-4457-82d8-d61830ec0907"))
+			"540d3d54-3a28-4f6d-bd09-357aedf6507b"))
 	(gr_line
 		(start
 			236.0000
@@ -98803,7 +101735,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"25f50bae-c78e-4d64-aae6-f9b4cfe7deac"))
+			"195beac2-10b5-4af8-8178-40b7d6f2de31"))
 	(gr_line
 		(start
 			236.0000
@@ -98819,7 +101751,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"f82a79ec-9ad1-4cca-943d-75aaaae73a2e"))
+			"8c2011b6-2d69-42aa-a276-0fb84c62c340"))
 	(gr_line
 		(start
 			172.0000
@@ -98835,7 +101767,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"e194a64d-d438-473a-ad29-9d5f130a9049"))
+			"643f9a3c-d74e-4e7b-9eab-9e8491b8d77e"))
 	(gr_line
 		(start
 			244.0000
@@ -98851,7 +101783,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"08cdfff9-818f-491b-a411-4b5dabda6d3e"))
+			"d4e07a52-ba3f-4938-9fc7-066ea6738990"))
 	(gr_line
 		(start
 			311.0000
@@ -98867,7 +101799,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"906b95c4-de1f-4f76-b61e-123b7a7ac620"))
+			"0a6f8777-9d24-46a4-871f-89e29b46dd88"))
 	(gr_line
 		(start
 			311.0000
@@ -98883,7 +101815,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"63fcda1c-b0cd-4970-8583-ce3c47fab701"))
+			"e79a9e2c-5687-4297-8804-b7e52b2e37dc"))
 	(gr_line
 		(start
 			244.0000
@@ -98899,7 +101831,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"3c3f9d01-a41a-430b-9d4d-9f9ca547c08a"))
+			"aab00db7-17ef-4ede-8970-3c4117062999"))
 	(gr_line
 		(start
 			26.0000
@@ -98915,7 +101847,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"5488c54e-5899-4ea5-8efe-189ce3e56f58"))
+			"8add0521-8802-4a30-a3ad-7bfd21b10ef3"))
 	(gr_line
 		(start
 			68.0000
@@ -98931,7 +101863,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"3b487860-b28c-4ceb-8134-47dc52b82ba5"))
+			"738865af-a542-4430-a171-ec5e6e2f96cf"))
 	(gr_line
 		(start
 			68.0000
@@ -98947,7 +101879,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"8fba341a-e6cf-457e-96d3-803abfb79cdc"))
+			"45e0193f-6fa0-4f88-8b1f-f461fed95233"))
 	(gr_line
 		(start
 			26.0000
@@ -98963,7 +101895,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"d75b45cf-ae10-44dd-b70a-9d3230d6fc28"))
+			"1da566a4-3e28-4386-81e4-fbf68c3ed8ba"))
 	(gr_line
 		(start
 			76.0000
@@ -98979,7 +101911,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"85f6eddf-f430-4a94-94d4-241057cf0d60"))
+			"bb8c5a7d-c80e-42b8-8989-23daa121a08c"))
 	(gr_line
 		(start
 			124.0000
@@ -98995,7 +101927,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"31e1e345-d184-4fa2-b5f8-61561fcf02c1"))
+			"132f5769-d2a6-4484-8603-05463bf180f3"))
 	(gr_line
 		(start
 			124.0000
@@ -99011,7 +101943,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"525ec87c-0352-4e2d-b6b8-ce73f3f538e4"))
+			"6a9c86dc-3f39-4dfa-a87f-57c80e01b8d5"))
 	(gr_line
 		(start
 			76.0000
@@ -99027,7 +101959,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"5c2accb2-aa10-4a19-8eb3-5f8a1b39d246"))
+			"91c6ef67-6545-436b-9425-d74d8644984d"))
 	(gr_line
 		(start
 			132.0000
@@ -99043,7 +101975,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"94f0acd9-b829-4c59-acda-97a476d4ecc2"))
+			"de6770bb-bd4b-4b34-8012-fe86c64168d9"))
 	(gr_line
 		(start
 			180.0000
@@ -99059,7 +101991,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"fd02b1be-fd69-4b3b-afd1-2fe18e4a155e"))
+			"8842d8a1-8c8e-4d19-ad5b-7c4d4928a26d"))
 	(gr_line
 		(start
 			180.0000
@@ -99075,7 +102007,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"bb7c28d0-ad2c-499f-b877-17648db6efd1"))
+			"6b2cfa4e-9bae-47ef-ac42-4c9b788f02da"))
 	(gr_line
 		(start
 			132.0000
@@ -99091,7 +102023,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"25f42fe2-f677-42f8-bcc9-d9d915604491"))
+			"c0894b1e-4ec9-4fab-8c93-99f55c059d98"))
 	(gr_line
 		(start
 			188.0000
@@ -99107,7 +102039,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"99e3d522-b929-4379-8bcd-ef83f22c2bdc"))
+			"a8caa5e9-373f-4782-8a3e-c1c874b55b4b"))
 	(gr_line
 		(start
 			236.0000
@@ -99123,7 +102055,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"1731b186-a2cb-4d46-b95e-2d72f51b1778"))
+			"c3cb830c-9109-4976-bb0a-106e79f85d07"))
 	(gr_line
 		(start
 			236.0000
@@ -99139,7 +102071,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"4900d888-1a73-4f0b-a052-040f23c15979"))
+			"faa6e65b-b5d3-4227-8132-b65b05ad86cc"))
 	(gr_line
 		(start
 			188.0000
@@ -99155,7 +102087,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"570387cc-ae96-418d-bfef-d0709bc365ad"))
+			"729ef54b-a06c-418b-8585-730279f1ee22"))
 	(gr_line
 		(start
 			244.0000
@@ -99171,7 +102103,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"28671300-671b-4c98-952b-8761213df661"))
+			"44d3d56e-17cb-42e9-ac5b-a8128593fd8b"))
 	(gr_line
 		(start
 			311.0000
@@ -99187,7 +102119,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"74a2f7cd-4749-4916-8205-b3544cd93341"))
+			"16e5bde3-8133-438d-8d24-c5202a31430a"))
 	(gr_line
 		(start
 			311.0000
@@ -99203,7 +102135,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"d4f8ffb3-6068-4fc5-ba9e-2ea2f82105e5"))
+			"f52fc2e5-57e4-4b4d-b97e-936e9c2caca8"))
 	(gr_line
 		(start
 			244.0000
@@ -99219,7 +102151,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"ab06e3c0-f9f8-4e21-8b04-714386bc8cc0"))
+			"06497540-5fe1-43b4-be6e-8ac77bc16198"))
 	(gr_line
 		(start
 			26.0000
@@ -99235,7 +102167,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"803a308d-37ae-4694-be5b-1473ba935126"))
+			"bf17b56e-bfa1-4910-8ea3-8682c498773b"))
 	(gr_line
 		(start
 			60.0000
@@ -99251,7 +102183,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"1b910b49-25b8-47b3-8ce3-52b877eda946"))
+			"44be814f-18c2-4d97-9969-8e209ab9bae3"))
 	(gr_line
 		(start
 			60.0000
@@ -99267,7 +102199,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"f45e39bb-0e63-495a-9d93-c4c7a0148df9"))
+			"d6846851-6d36-40cb-be5e-2820f94d0e94"))
 	(gr_line
 		(start
 			26.0000
@@ -99283,7 +102215,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"271e7f39-d4f1-429b-83fc-a7b0330e7acd"))
+			"6876c975-ecd2-4234-90ca-8c2ad9ac0e26"))
 	(gr_line
 		(start
 			68.0000
@@ -99299,7 +102231,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"af2e288a-f12e-4040-8b14-a186c2347eaa"))
+			"4141f03e-b9f4-4d58-b0a6-faa7b3994043"))
 	(gr_line
 		(start
 			112.0000
@@ -99315,7 +102247,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"1a73b8b0-583e-4531-bb9d-fe5402158374"))
+			"a8817283-c5fc-4570-97dd-30fc083c1dd4"))
 	(gr_line
 		(start
 			112.0000
@@ -99331,7 +102263,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"510b0858-479a-45a0-9095-9bc282f9ed49"))
+			"d1de2ab4-e96d-466e-b5aa-f23803f53573"))
 	(gr_line
 		(start
 			68.0000
@@ -99347,7 +102279,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"d0508d57-1775-4a09-b972-28aaefe5b70b"))
+			"4875f78d-df40-43b7-83a3-58d1398df787"))
 	(gr_line
 		(start
 			120.0000
@@ -99363,7 +102295,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"06d90118-abdc-44ac-b35e-4ecfea8a0890"))
+			"309adb94-4100-4bb6-a27f-70d351f95fe0"))
 	(gr_line
 		(start
 			164.0000
@@ -99379,7 +102311,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"986f5837-371d-42ac-9caf-a398dbe3e7d4"))
+			"8c962df4-0400-450e-bfe2-2c91a7c6f868"))
 	(gr_line
 		(start
 			164.0000
@@ -99395,7 +102327,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"c5e53479-2729-46c4-84ea-bbab6ab7acce"))
+			"4fea991c-68ee-4889-91b3-16306d09d459"))
 	(gr_line
 		(start
 			120.0000
@@ -99411,7 +102343,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"fb613a67-9cf0-45cc-bcd8-51e9e1f1c199"))
+			"ed6599ca-23fe-4a90-a36d-b69f79490ab5"))
 	(gr_line
 		(start
 			172.0000
@@ -99427,7 +102359,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"dcc18c65-30c7-43c4-9a80-15621bb4b672"))
+			"0e388dcc-7d74-4d6a-aa6b-eed95c0ecfa6"))
 	(gr_line
 		(start
 			216.0000
@@ -99443,7 +102375,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"8bffdd7b-5be7-420a-9532-4580d3d5e5b5"))
+			"282e3fa7-aee1-41c3-9cad-9d5f470d4119"))
 	(gr_line
 		(start
 			216.0000
@@ -99459,7 +102391,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"29fae99c-2038-4905-a2fe-bac5befc9f5e"))
+			"b681949e-336a-4a0e-adb4-ac321d296fc5"))
 	(gr_line
 		(start
 			172.0000
@@ -99475,7 +102407,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"8096568b-f4ee-4313-85e9-c2e0d63281db"))
+			"fadc1c36-1e93-42a9-9bf5-c0bc7f26b784"))
 	(gr_line
 		(start
 			224.0000
@@ -99491,7 +102423,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"335a0005-0683-462e-af99-3c9d29a8660f"))
+			"c60888fc-0a50-44e9-a5c2-cacbb3802708"))
 	(gr_line
 		(start
 			268.0000
@@ -99507,7 +102439,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"3ef1e3d5-949c-45a0-b6bf-61cadc04214d"))
+			"c29813a6-720e-4726-8479-1ecee245962e"))
 	(gr_line
 		(start
 			268.0000
@@ -99523,7 +102455,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"4d536571-2738-4eb2-aab9-003039ee1abe"))
+			"6314198e-9a29-4189-bee9-dea8ca6ecfe1"))
 	(gr_line
 		(start
 			224.0000
@@ -99539,7 +102471,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"5d4f7a59-9b06-476a-be5d-0ab37399ec04"))
+			"648a4593-991f-4fdf-a559-09acfa8094d7"))
 	(gr_line
 		(start
 			276.0000
@@ -99555,7 +102487,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"be4fac05-a1ca-4f41-8801-6f43a93b85f0"))
+			"4c95690b-04c6-485d-83f0-56883de9441b"))
 	(gr_line
 		(start
 			311.0000
@@ -99571,7 +102503,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"76cd009b-bca8-4dab-84f3-108db6f03916"))
+			"f1ebcbca-8eaf-43a3-9108-944578cdd468"))
 	(gr_line
 		(start
 			311.0000
@@ -99587,7 +102519,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"e87ee66d-ee95-4185-81b0-0bf3dab12d58"))
+			"dc8867e2-4ef2-4284-b107-4da9fc3d2604"))
 	(gr_line
 		(start
 			276.0000
@@ -99603,7 +102535,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"3804b314-3de8-4c72-ac96-6483c9d881ff"))
+			"1622d7a2-0f14-4e03-83c8-79c4e1c6d2d7"))
 	(gr_line
 		(start
 			26.0000
@@ -99619,7 +102551,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"4e258e32-5ccf-40c3-8837-5cf9b7b0a3c8"))
+			"2e161954-845b-47cd-956d-052db496f6df"))
 	(gr_line
 		(start
 			84.0000
@@ -99635,7 +102567,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"511a4c2a-d9eb-4ba4-acb9-732bc11ed41a"))
+			"367d2b85-e6e9-4f32-9490-aae401d9c9a2"))
 	(gr_line
 		(start
 			84.0000
@@ -99651,7 +102583,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"2c3c677b-ff5d-418d-985b-223da7398e82"))
+			"cb14bf5d-a1bd-4c45-8751-27291645453a"))
 	(gr_line
 		(start
 			26.0000
@@ -99667,7 +102599,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"d415db60-3cba-407e-a2b5-3bcf8f3baae0"))
+			"747fcebb-f9e2-4a3b-82d3-aeeb287573f8"))
 	(gr_line
 		(start
 			92.0000
@@ -99683,7 +102615,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"1890af84-2035-4954-8f2f-dec6b43dfe04"))
+			"a469f165-39d0-40d2-b62b-140eb82c4ee9"))
 	(gr_line
 		(start
 			148.0000
@@ -99699,7 +102631,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"d371bdfd-da62-4ced-a876-2e5f1578248f"))
+			"aa8f3cf1-d4ea-43ca-9a74-b8adc750d485"))
 	(gr_line
 		(start
 			148.0000
@@ -99715,7 +102647,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"62421caa-dc43-4c7d-abc0-dda39ae6b3f7"))
+			"59db788a-765b-492d-ad86-db9629880b52"))
 	(gr_line
 		(start
 			92.0000
@@ -99731,7 +102663,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"e52dab0c-3c59-49f3-83e1-df99d7624011"))
+			"b2ea9751-e169-4e76-9514-a4a750b4c887"))
 	(gr_line
 		(start
 			156.0000
@@ -99747,7 +102679,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"23b5ffda-93c9-4278-8a66-1df648359c6c"))
+			"148bda38-6a57-46c1-8c66-1183372223ff"))
 	(gr_line
 		(start
 			212.0000
@@ -99763,7 +102695,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"ceb0d7c4-650b-4e17-8ff2-beb947586ca0"))
+			"0a16f7e4-5662-4c7b-8faf-77801fbf6560"))
 	(gr_line
 		(start
 			212.0000
@@ -99779,7 +102711,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"ede183f0-c7df-441e-a218-7bb2b04b7b02"))
+			"e8d593ff-50c1-41c8-83be-2f0864072d8f"))
 	(gr_line
 		(start
 			156.0000
@@ -99795,7 +102727,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"da755e2f-c0b2-4779-8d4c-abf9059f4c5b"))
+			"97102b11-1616-42bb-9ed8-223e88a29174"))
 	(gr_line
 		(start
 			220.0000
@@ -99811,7 +102743,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"97253872-ec9f-44c8-8221-1bee25ea3e2b"))
+			"dd2719c4-01ed-464d-9c4a-7a42b955b899"))
 	(gr_line
 		(start
 			276.0000
@@ -99827,7 +102759,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"af299269-ea2d-4f8b-adb1-ba4fb9bb4e47"))
+			"fa13d7fb-c4ae-4239-9411-7b3fdc0bec4b"))
 	(gr_line
 		(start
 			276.0000
@@ -99843,7 +102775,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"8bdd0840-e815-45ce-ab91-77ccc2b67622"))
+			"f9be2f30-297f-4494-8a81-49288ca72334"))
 	(gr_line
 		(start
 			220.0000
@@ -99859,7 +102791,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"db44dfb5-3e00-4390-a53c-14baf4adc7ea"))
+			"887c1b67-0e3f-4aa5-b4a5-226de8059153"))
 	(gr_line
 		(start
 			284.0000
@@ -99875,7 +102807,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"c27874ce-7313-4141-a424-a5d8b136c5f0"))
+			"dd93e943-7ab7-4be8-adfb-612ecad89263"))
 	(gr_line
 		(start
 			311.0000
@@ -99891,7 +102823,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"3345a8ef-3a1d-4e30-96ba-f07d027b2fb4"))
+			"23b341b0-18be-4217-8a68-92882e928280"))
 	(gr_line
 		(start
 			311.0000
@@ -99907,7 +102839,7 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"cb571b4b-eac7-4635-b6a0-0ee1a2cec85a"))
+			"88ff5039-fb6e-414c-b126-fb48d63ce93a"))
 	(gr_line
 		(start
 			284.0000
@@ -99923,6 +102855,6 @@
 		(layer
 			"Edge.Cuts")
 		(uuid
-			"50cad2b5-d6bc-4c2b-861f-68489222829e"))
+			"39bd2170-1e0e-41d9-82cc-ccc7c981caaa"))
 	(embedded_fonts
 		no))
