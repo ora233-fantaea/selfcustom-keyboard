@@ -15,6 +15,9 @@ import pcbkit as K
 import board_geom as BG
 from router import Grid, path_to_geom, GRID
 
+# 层号 -> KiCad 层名（写盘时必须用层名，否则 KiCad 拒绝加载）
+LAYER_NAME = {0: "F.Cu", 1: "B.Cu"}
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 PCB = os.path.join(HERE, "kbd-esp32s3.kicad_pcb")
 
@@ -181,7 +184,7 @@ def main():
             for p, q in zip(pts, pts[1:]):
                 if abs(p[0] - q[0]) < 1e-6 and abs(p[1] - q[1]) < 1e-6:
                     continue
-                traces.append((net, L, p, q))
+                traces.append((net, LAYER_NAME[L], p, q))
         for (vx, vy) in vs:
             vias.append((net, vx, vy))
             gr.mark_via(gr.ix(vx), gr.iy(vy))
@@ -227,7 +230,7 @@ def main():
             geo, vs = path_to_geom(gr, pa)
             for L, pl in geo:
                 for p, q in zip(pl, pl[1:]):
-                    traces.append((net, L, p, q))
+                    traces.append((net, LAYER_NAME[L], p, q))
             for (vx, vy) in vs:
                 vias.append((net, vx, vy))
                 gr.mark_via(gr.ix(vx), gr.iy(vy))

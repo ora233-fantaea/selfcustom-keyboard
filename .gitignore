@@ -13,3 +13,8 @@ __pycache__/
 .DS_Store
 Thumbs.db
 *.tmp
+
+# DRC 报告与临时产物
+*.drc.rpt
+drc_*.rpt
+_bisect/

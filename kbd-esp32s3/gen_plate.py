@@ -21,9 +21,9 @@ import pcbnew as pcb
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
-# ---------- 1. 从 gen_pcb.py 提取配列/常量 ----------
+# ---------- 1. 从 kbd_design.py 提取配列/常量 ----------
 def load_layout():
-    src = open(os.path.join(HERE, "gen_pcb.py"), encoding="utf-8").read()
+    src = open(os.path.join(HERE, "kbd_design.py"), encoding="utf-8").read()
     tree = ast.parse(src)
     env = {}
     want = ("U", "ORIGIN_X", "ORIGIN_Y", "MARGIN_X", "MARGIN_BOT", "LAYOUT")

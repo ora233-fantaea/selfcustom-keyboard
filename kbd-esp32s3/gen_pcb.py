@@ -70,8 +70,9 @@ for extra in (["GND", "VCC", "CLK", "SH_LD"] + [f"CHAIN_{i}" for i in range(1, 1
 
 
 # ---------------------------------------------------------------- 板对象
-BOARD = ["kicad_pcb", ["version", "20250114"], ["generator", "pcbnew"],
-         ["generator_version", "9.0"],
+# version 必须 <= 本机 KiCad 的格式版本，否则 KiCad 会静默拒绝加载
+BOARD = ["kicad_pcb", ["version", "20241229"], ["generator", K.Str("pcbnew")],
+         ["generator_version", K.Str("9.0")],
          ["general", ["thickness", "1.6"], ["legacy_teardrops", "no"]],
          ["paper", "A3"]]
 for kw in ("layers", "setup"):
@@ -116,10 +117,15 @@ def place(lib, ref, value, x, y, rot=0, pad_nets=None):
 
 
 # ---- 75 轴座 ----
+MX_HOLE_PAD = 3.4          # Ø3.0 热插拔孔的外盘；3.6 时离 Ø1.7 定位柱孔仅 0.19mm
 for k in D.KEYS:
     kn = D.key_net(k["n"])
-    place("SW_MX_HotSwap_PTH", f"SW{k['n']:02d}", k["label"], k["cx"], k["cy"], 0,
-          {"1": kn, "2": "GND"})
+    fp = place("SW_MX_HotSwap_PTH", f"SW{k['n']:02d}", k["label"], k["cx"], k["cy"], 0,
+               {"1": kn, "2": "GND"})
+    for pad in K.get_all(fp, "pad"):
+        sz, dr = K.get(pad, "size"), K.get(pad, "drill")
+        if sz and dr and abs(float(sz[1]) - 3.6) < 1e-6 and abs(float(dr[1]) - 3.0) < 1e-6:
+            sz[1] = sz[2] = f"{MX_HOLE_PAD:g}"
 
 # ---- 10 片 74HC165 + 去耦 + 上拉（上拉集中到芯片旁，把行间净空全部让给布线）----
 for i in range(D.CHIP_COUNT):
@@ -135,7 +141,7 @@ for i in range(D.CHIP_COUNT):
     for j, (pin, knum) in enumerate(D.CHIP_INPUTS[i]):
         if knum is None:
             continue
-        rx = D.IC_XS[i] - 4.35 + (j % 4) * 2.90
+        rx = D.IC_XS[i] - 4.59 + (j % 4) * 3.06
         ry = D.IC_Y - 9.55 + (j // 4) * 2.40
         place("R_0603_1608Metric", f"R{knum:02d}", "10k", rx, ry, 0,
               {"1": "VCC", "2": D.key_net(knum)})
@@ -195,7 +201,7 @@ def module_footprint():
              ["layer", K.Str("F.Fab")], ["uuid", new_uuid()],
              ["effects", ["font", ["size", "1", "1"]], ["hide", "yes"]]]]
     for (hx, hy) in D.MOD_HOLES:
-        pad = ["pad", "", "np_thru_hole", "circle",
+        pad = ["pad", K.Str(""), "np_thru_hole", "circle",
                ["at", f"{hx - D.MOD_X0:.3f}", f"{hy - D.MOD_Y0:.3f}"],
                ["size", f"{D.MOD_HOLE_D:.2f}", f"{D.MOD_HOLE_D:.2f}"],
                ["drill", f"{D.MOD_HOLE_D:.2f}"],
