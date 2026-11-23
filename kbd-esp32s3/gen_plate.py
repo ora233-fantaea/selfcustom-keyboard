@@ -190,8 +190,8 @@ for k in keys:
 for hx, hy in [(5, 5), (board_w - 5, 5), (5, board_h - 5), (board_w - 5, board_h - 5)]:
     circle(hx, hy, 1.6, 0.1)
 
-# 2.5 开发板排针/本体避让窗（顶部窄带；首行键 y=40，键孔顶 y=33，窗底 31 留 2mm 不碰）
-rect(140, 2, 198, 31, 0.1)
+# 2.5 开发板本体检出窗（模块 63.30 x 25.40，x 137.25..200.55 / y 2.20..27.60，留 1.5mm 余量）
+rect(136, 1, 202, 30, 0.1)
 
 plate_path = os.path.join(HERE, "kbd-plate.kicad_pcb")
 pcb.SaveBoard(plate_path, board)
@@ -272,7 +272,7 @@ for hx, hy in [(5, 5), (board_w - 5, 5), (5, board_h - 5), (board_w - 5, board_h
     ax.add_patch(Circle((hx, hy), 1.6, facecolor="white", edgecolor="#111", linewidth=1.0))
 
 # 避让窗
-ax.add_patch(Rectangle((140, 2), 58, 29, fill=False,
+ax.add_patch(Rectangle((136, 1), 66, 29, fill=False,
                        edgecolor="#2c3e50", linewidth=1.2, linestyle="--"))
 ax.text(169, 16.5, "DEV-KIT cutout", ha="center", va="center",
         fontsize=7, color="#2c3e50")

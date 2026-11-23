@@ -132,13 +132,72 @@ def slot_rects():
     return out
 
 
+# ---------- 主控模块：Waveshare ESP32-S3-DEV-KIT-N16R8-M ----------
+# 数据来源（2026-11-23 核对）：
+#   官方机械图 ESP32-S3-DEV-KIT-N8R8_20260110.dxf / .pdf
+#   官方原理图 ESP32-S3-DEV-KIT-N8R8-schematic.pdf（P1/P2 均标注 "Header 22"）
+#   官方尺寸标注：板体 63.30 x 25.40，两排排针中心距 21.80，
+#                 排针中心距板边 1.80，首针距板端 5.05(左) / 4.91(右)，
+#                 四角安装孔 4-Ø2.0（M1.4 螺丝）
+# 结论：每排 22 针（不是 20 针），针距 2.54，两排中心距 21.80
+MOD_PITCH = 2.54
+MOD_PINS_PER_ROW = 22
+MOD_ROW_SPACING = 21.80
+MOD_LEN, MOD_WID = 63.30, 25.40
+MOD_EDGE_TO_PIN = 1.80
+MOD_END_MARGIN_USB, MOD_END_MARGIN_ANT = 5.05, 4.91   # 左(USB 端) / 右(天线端)
+MOD_HOLE_D = 2.0
+
+MOD_X0 = BOARD_W / 2.0 - MOD_LEN / 2.0        # 137.25：模块左缘（USB 端）
+MOD_X1 = MOD_X0 + MOD_LEN                     # 200.55
+MOD_Y0 = 4.0 - MOD_EDGE_TO_PIN                # 2.20：模块上缘
+MOD_Y1 = MOD_Y0 + MOD_WID                     # 27.60
+P1_Y, P2_Y = MOD_Y0 + MOD_EDGE_TO_PIN, MOD_Y0 + MOD_EDGE_TO_PIN + MOD_ROW_SPACING   # 4.0 / 25.8
+# 模块 pin 1 在天线端（3V3），引脚号自右向左递增
+PIN1_X = MOD_X1 - MOD_END_MARGIN_ANT          # 195.64
+
+
+def mod_pin_x(n):
+    """模块第 n 针的世界 X 坐标（n=1 在最右）"""
+    return PIN1_X - (n - 1) * MOD_PITCH
+
+
+MOD_HOLES = [(MOD_X0 + MOD_EDGE_TO_PIN, P1_Y), (MOD_X1 - MOD_EDGE_TO_PIN, P1_Y),
+             (MOD_X0 + MOD_EDGE_TO_PIN, P2_Y), (MOD_X1 - MOD_EDGE_TO_PIN, P2_Y)]
+
+# 引脚定义 = (丝印标签, 网络名或 None)
+# P1 自上排左->右的丝印：G 5V 14 13 12 11 10 9 46 3 8 18 17 16 15 7 6 5 4 RST 3V3 3V3
+# P2 自下排左->右的丝印：G G 19 20 21 47 48 45 0 35 36 37 38 39 40 41 42 2 1 RX TX G
+P1_PINOUT = {
+    1: ("3V3", "VCC"), 2: ("3V3", "VCC"), 3: ("RST", None),
+    4: ("4", "CLK"), 5: ("5", "SH_LD"), 6: ("6", "CHAIN_10"),
+    7: ("7", "ENC_A"), 8: ("15", "ENC_B"), 9: ("16", "ENC_SW"),
+    10: ("17", "LED_DATA"),
+    11: ("18", None), 12: ("8", None), 13: ("3", None), 14: ("46", None),
+    15: ("9", None), 16: ("10", None), 17: ("11", None), 18: ("12", None),
+    19: ("13", None), 20: ("14", None),
+    21: ("5V", "V5"), 22: ("G", "GND"),
+}
+P2_PINOUT = {
+    1: ("G", "GND"),
+    2: ("TX", None), 3: ("RX", None), 4: ("1", None), 5: ("2", None),
+    6: ("42", None), 7: ("41", None), 8: ("40", None), 9: ("39", None),
+    10: ("38", None),           # 板上 WS2812B 占用，勿用
+    11: ("37", None), 12: ("36", None), 13: ("35", None),   # WROOM-1 上为 NC
+    14: ("0", None), 15: ("45", None), 16: ("48", None), 17: ("47", None),
+    18: ("21", None), 19: ("20", "USB_D+"), 20: ("19", "USB_D-"),
+    21: ("G", "GND"), 22: ("G", "GND"),
+}
+
+
 # ---------- 预留灯光：板边 underglow ----------
 LED_COUNT = 20
 LED_Y = 161.4                 # 底边灯带中心（B.Cu）
 LED_X0, LED_X1 = 26.0, 315.0
 LED_PITCH = (LED_X1 - LED_X0) / (LED_COUNT - 1)
 LED_XS = [LED_X0 + i * LED_PITCH for i in range(LED_COUNT)]
-LED_PAD_DX, LED_PAD_DY = 1.45, 0.75
+# 焊盘几何对齐官方库 LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm（±1.75 / ±0.875，焊盘 1.6x0.85）
+LED_PAD_DX, LED_PAD_DY = 1.75, 0.875
 # pad1=VDD(5V) 2=DOUT 3=GND 4=DIN  (SK6812MINI-E)
 LED_NET_VDD = "V5"
 LED_NET_GND = "GND"

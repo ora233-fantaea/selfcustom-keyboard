@@ -140,20 +140,78 @@ for i in range(D.CHIP_COUNT):
         place("R_0603_1608Metric", f"R{knum:02d}", "10k", rx, ry, 0,
               {"1": "VCC", "2": D.key_net(knum)})
 
-# ---- 排针 / 编码器 / USB ----
-HDR_PIN1_X = D.BOARD_W / 2 - 24
-place("PinHeader_1x20_P2.54mm_Vertical", "J_P1", "DEV-KIT-P1", HDR_PIN1_X, 4.0, 90,
-      {"1": "VCC", "3": "CLK", "4": "SH_LD", "5": "CHAIN_10",
-       "6": "ENC_A", "7": "ENC_B", "8": "ENC_SW",
-       "9": D.LED_IN_NET, "20": "V5"})
-place("PinHeader_1x20_P2.54mm_Vertical", "J_P2", "DEV-KIT-P2", HDR_PIN1_X, 25.8, 90,
-      {"1": "GND"})
+# ---- 主控模块座：2 x 1x22 @2.54mm，两排中心距 21.80mm（官方机械图）----
+def header_footprint(ref, value, y, pinout, n):
+    """1xN 2.54mm 排母，pin1 位于最右（天线端），引脚号向左递增"""
+    node = ["footprint", K.Str(f"PinHeader_1x{n:02d}_P2.54mm_Vertical"),
+            ["layer", K.Str("F.Cu")], ["uuid", new_uuid()],
+            ["at", f"{D.PIN1_X:.3f}", f"{y:.3f}"], ["attr", "through_hole"],
+            ["descr", K.Str("1x22 pin socket, 2.54mm pitch (Waveshare ESP32-S3-DEV-KIT)")],
+            ["property", K.Str("Reference"), K.Str(ref), ["at", "0", "-2.4", "0"],
+             ["layer", K.Str("F.SilkS")], ["uuid", new_uuid()],
+             ["effects", ["font", ["size", "1", "1"]], ["hide", "yes"]]],
+            ["property", K.Str("Value"), K.Str(value), ["at", "0", "2.4", "0"],
+             ["layer", K.Str("F.Fab")], ["uuid", new_uuid()],
+             ["effects", ["font", ["size", "1", "1"]], ["hide", "yes"]]]]
+    span = (n - 1) * D.MOD_PITCH
+    node.append(["fp_rect", ["start", f"{-span - 1.27:.3f}", "-1.27"],
+                 ["end", "1.27", "1.27"],
+                 ["stroke", ["width", "0.12"], ["type", "solid"]],
+                 ["fill", "none"], ["layer", K.Str("F.SilkS")], ["uuid", new_uuid()]])
+    for i in range(1, n + 1):
+        label, net = pinout.get(i, ("", None))
+        pad = ["pad", str(i), "thru_hole", "rect" if i == 1 else "circle",
+               ["at", f"{-(i - 1) * D.MOD_PITCH:.3f}", "0"],
+               ["size", "1.7", "1.7"], ["drill", "1.0"],
+               ["layers", K.Str("*.Cu"), K.Str("*.Mask")]]
+        if net:
+            pad.append(["net", str(NET_ID[net]), K.Str(net)])
+        pad.append(["uuid", new_uuid()])
+        node.append(pad)
+    BOARD.append(node)
+
+
+header_footprint("J_P1", "DEV-KIT-P1", D.P1_Y, D.P1_PINOUT, D.MOD_PINS_PER_ROW)
+header_footprint("J_P2", "DEV-KIT-P2", D.P2_Y, D.P2_PINOUT, D.MOD_PINS_PER_ROW)
+
+# ---- 模块本体轮廓 + 四角 Ø2 安装孔（M1.4 螺丝）----
+def module_footprint():
+    node = ["footprint", K.Str("Waveshare_ESP32-S3-DEV-KIT-N16R8-M"),
+            ["layer", K.Str("F.Cu")], ["uuid", new_uuid()],
+            ["at", f"{D.MOD_X0:.3f}", f"{D.MOD_Y0:.3f}"], ["attr", "through_hole"],
+            ["descr", K.Str("Module body 63.30 x 25.40, 4 x M1.4 mounting holes")],
+            ["fp_rect", ["start", "0", "0"], ["end", f"{D.MOD_LEN:.2f}", f"{D.MOD_WID:.2f}"],
+             ["stroke", ["width", "0.15"], ["type", "dash"]],
+             ["fill", "none"], ["layer", K.Str("F.SilkS")], ["uuid", new_uuid()]],
+            ["fp_rect", ["start", "-0.25", "-0.25"],
+             ["end", f"{D.MOD_LEN + 0.25:.2f}", f"{D.MOD_WID + 0.25:.2f}"],
+             ["stroke", ["width", "0.05"], ["type", "solid"]],
+             ["fill", "none"], ["layer", K.Str("F.CrtYd")], ["uuid", new_uuid()]],
+            ["property", K.Str("Reference"), K.Str("MOD1"), ["at", "0", "-1.2", "0"],
+             ["layer", K.Str("F.SilkS")], ["uuid", new_uuid()],
+             ["effects", ["font", ["size", "1", "1"]], ["hide", "yes"]]],
+            ["property", K.Str("Value"), K.Str("ESP32-S3-DEV-KIT-N16R8-M"),
+             ["at", "0", f"{D.MOD_WID + 1.2:.2f}", "0"],
+             ["layer", K.Str("F.Fab")], ["uuid", new_uuid()],
+             ["effects", ["font", ["size", "1", "1"]], ["hide", "yes"]]]]
+    for (hx, hy) in D.MOD_HOLES:
+        pad = ["pad", "", "np_thru_hole", "circle",
+               ["at", f"{hx - D.MOD_X0:.3f}", f"{hy - D.MOD_Y0:.3f}"],
+               ["size", f"{D.MOD_HOLE_D:.2f}", f"{D.MOD_HOLE_D:.2f}"],
+               ["drill", f"{D.MOD_HOLE_D:.2f}"],
+               ["layers", K.Str("*.Cu"), K.Str("*.Mask")], ["uuid", new_uuid()]]
+        node.append(pad)
+    BOARD.append(node)
+
+
+module_footprint()
 place("RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm", "ENC1", "EC11",
       D.BOARD_W - 20, D.ORIGIN_Y + 8, 0,
       {"A": "ENC_A", "B": "ENC_B", "C": "GND", "S1": "ENC_SW", "S2": "GND"})
-place("USB_C_Receptacle_GCT_USB4085", "J_USB", "USB-C", 12.0, 16.0, 0,
-      {"A4": "VCC", "A9": "VCC", "B4": "VCC", "B9": "VCC",
-       "A1": "GND", "A12": "GND", "B1": "GND", "B12": "GND",
+# J_USB 仅作原生 USB 备用口（数据 + 地）。VBUS 不接：本板由模块 3V3/5V 供电，
+# 若把 VBUS 接到 VCC 会把 5V 灌进 3.3V 轨。要用这个口需另补 CC1/CC2 5.1k 下拉。
+place("USB_C_Receptacle_GCT_USB4085", "J_USB", "USB-C(数据备用)", 12.0, 16.0, 0,
+      {"A1": "GND", "A12": "GND", "B1": "GND", "B12": "GND",
        "A6": "USB_D+", "A7": "USB_D-", "B6": "USB_D+", "B7": "USB_D-"})
 
 def led_footprint(ref, x, y, nets):
@@ -164,7 +222,7 @@ def led_footprint(ref, x, y, nets):
     for num, dx, dy in layout:
         nm = nets.get(num)
         pad = ["pad", num, "smd", "rect", ["at", f"{dx:g}", f"{dy:g}"],
-               ["size", "0.85", "0.85"],
+               ["size", "1.6", "0.85"],
                ["layers", K.Str("B.Cu"), K.Str("B.Mask"), K.Str("B.Paste")]]
         if nm:
             pad.append(["net", str(NET_ID[nm]), K.Str(nm)])
@@ -173,7 +231,7 @@ def led_footprint(ref, x, y, nets):
     node = ["footprint", K.Str("LED_SK6812MINI-E"), ["layer", K.Str("B.Cu")],
             ["uuid", new_uuid()], ["at", f"{x:.3f}", f"{y:.3f}"],
             ["attr", "smd"], ["descr", K.Str("RGB underglow LED, provision only")],
-            ["fp_rect", ["start", "-1.6", "-1.4"], ["end", "1.6", "1.4"],
+            ["fp_rect", ["start", "-1.75", "-1.75"], ["end", "1.75", "1.75"],
              ["stroke", ["width", "0.12"], ["type", "solid"]],
              ["fill", "none"], ["layer", K.Str("B.SilkS")], ["uuid", new_uuid()]],
             ["property", K.Str("Reference"), K.Str(ref), ["at", "0", "-2.6", "0"],
