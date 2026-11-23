@@ -1,0 +1,15 @@
+# 项目元数据（非交付内容）
+.codebuddy/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# KiCad 本地偏好设置
+*.kicad_prl
+
+# 系统临时文件
+.DS_Store
+Thumbs.db
+*.tmp
