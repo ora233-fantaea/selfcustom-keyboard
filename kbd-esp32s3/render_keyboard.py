@@ -138,7 +138,7 @@ ax.plot(*iso(knx, kny, kz1+0.07), marker='o', ms=4, color='#12161c', zorder=21)
 ax.text(-(NROW)*C - 0.6, 2.0, 'ESP32-S3  //  75% HOT-SWAP',
         color='#c8892f', fontsize=15, fontfamily='DejaVu Sans Mono',
         fontweight='bold', zorder=30)
-ax.text(-(NROW)*C - 0.6, 1.4, 'MX / CHOC V1  DUAL-MOUNT   ·   ESP32-S3 NATIVE USB HID  ·  1000Hz',
+ax.text(-(NROW)*C - 0.6, 1.4, 'CHERRY MX  HOT-SWAP   ·   ESP32-S3 NATIVE USB HID  ·  1000Hz',
         color='#6c7684', fontsize=8.5, fontfamily='DejaVu Sans Mono', zorder=30)
 ax.text(MAXU*C + 1.0, -(MAXU+NROW)*S - 1.2, 'CASSETTE FUTURISM EDITION  ·  2026',
         color='#4b5563', fontsize=8, fontfamily='DejaVu Sans Mono', zorder=30, ha='right')
