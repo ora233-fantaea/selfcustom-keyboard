@@ -1,84 +1,187 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""双层栅格 A* 布线器（0.2mm 栅格，0.2mm 线宽，0.2mm 间距）
+"""双层栅格 A* 布线器（0.1mm 栅格 / 0.2mm 线宽 / 0.2mm 间距）
 
-- 障碍：焊盘(按铜层)、NPTH 钻孔、Edge.Cuts 开槽、板边
-- 同层移动代价 1，换层(过孔)代价 24
-- 已布走线在栅格上按 1 格(0.2mm)外扩占用，保证线间距 >= 0.2mm
+设计原则（2026-11-24 重写）
+---------------------------
+1. 障碍按**真实几何**栅格化：焊盘用外框、钻孔用圆、开槽与板边用矩形，
+   统一外扩 CLEAR + TRACE_W/2，不用「中心点 + 常数偏移」那种近似。
+2. 已布走线按**线段距离**占用栅格（不是只标记路径节点），
+   外扩量保证异网间距 >= CLEAR。
+3. 占用带网络号（int16），同网可以贴着自己走，异网一律不允许。
+4. 进入焊盘时只解锁**该焊盘自己的外扩区**（0.3mm），
+   不再像旧版那样一次性解锁 pad+0.8mm —— 那是短路的主因。
+5. Edge.Cuts（开槽 / 板框）按 EDGE_CLEAR + 线宽一半 外扩，与 KiCad DRC 一致。
 """
 import heapq
-import math
+import time
+
 import numpy as np
 
-GRID = 0.2
-CLEAR = 0.2
-TRACE_W = 0.2
+GRID = 0.1                 # 0.1mm：1.27mm 间距的 SOIC 才有足够通道
+CLEAR = 0.2                 # 铜-铜间距
+TRACE_W = 0.15              # 线宽（信号线，0.2 间距下可省出通道）
+VIA_D, VIA_DRILL = 0.6, 0.3
+EDGE_CLEAR = 0.5            # 板边/开槽到铜的间距（KiCad 默认）
 VIA_COST = 24.0
-INFLATE = CLEAR + TRACE_W / 2.0      # 0.3mm
+
+# 0.2mm 栅格是离散的：外扩量要加一点余量，否则边界格中心可能落在
+# 「刚好 0.2」处，被 DRC 判成 0.195 之类
+EPS = 0.02
+INFLATE = CLEAR + TRACE_W / 2.0 + EPS          # 0.33：铜障碍外扩
+OCC_INFLATE = CLEAR + TRACE_W + EPS            # 0.43：走线占用外扩
+EDGE_INFLATE = EDGE_CLEAR + TRACE_W / 2.0 + EPS  # 0.63：板边/开槽
+HOLE_INFLATE = 0.25 + TRACE_W / 2.0 + EPS      # 0.38：孔-铜间距（KiCad 默认 0.25）
+VIA_INFLATE = CLEAR + VIA_D / 2.0 + TRACE_W / 2.0 + EPS   # 走线要绕开过孔铜皮
+
+SQ2 = 2.0 ** 0.5
 
 
 class Grid:
     def __init__(self, w, h):
         self.nx = int(round(w / GRID)) + 1
         self.ny = int(round(h / GRID)) + 1
-        self.blocked = np.zeros((2, self.ny, self.nx), dtype=bool)
         self.w, self.h = w, h
+        self.blocked = np.zeros((2, self.ny, self.nx), dtype=bool)
+        self.occ = np.zeros((2, self.ny, self.nx), dtype=np.int16)
+        self.pad_count = np.zeros((2, self.ny, self.nx), dtype=np.uint8)
+        self.via_used = np.zeros((2, self.ny, self.nx), dtype=bool)   # 过孔-过孔最小间距
 
+    # ---------------- 索引 ----------------
     def ix(self, x):
         return int(round(x / GRID))
 
     def iy(self, y):
         return int(round(y / GRID))
 
-    def _rect(self, layer, x1, y1, x2, y2):
-        i0, i1 = self.ix(x1), self.ix(x2)
-        j0, j1 = self.iy(y1), self.iy(y2)
-        i0 = max(0, i0); j0 = max(0, j0)
-        i1 = min(self.nx - 1, i1); j1 = min(self.ny - 1, j1)
-        if i1 >= i0 and j1 >= j0:
-            self.blocked[layer, j0:j1 + 1, i0:i1 + 1] = True
+    # ---------------- 栅格化基础 ----------------
+    def _slice(self, x1, y1, x2, y2):
+        if x1 > x2:
+            x1, x2 = x2, x1
+        if y1 > y2:
+            y1, y2 = y2, y1
+        i0 = max(0, int(np.floor(x1 / GRID + 0.5)))
+        i1 = min(self.nx - 1, int(np.ceil(x2 / GRID - 0.5)))
+        j0 = max(0, int(np.floor(y1 / GRID + 0.5)))
+        j1 = min(self.ny - 1, int(np.ceil(y2 / GRID - 0.5)))
+        if i1 < i0:
+            i0 = i1 = max(0, min(self.nx - 1, self.ix((x1 + x2) / 2)))
+        if j1 < j0:
+            j0 = j1 = max(0, min(self.ny - 1, self.iy((y1 + y2) / 2)))
+        return i0, i1, j0, j1
 
-    def rect(self, x1, y1, x2, y2, layers=(0, 1), pad=0.0):
+    def rect(self, x1, y1, x2, y2, layers=(0, 1), inflate=0.0, value=True, count=False):
+        i0, i1, j0, j1 = self._slice(x1 - inflate, y1 - inflate, x2 + inflate, y2 + inflate)
         for L in layers:
-            self._rect(L, x1 - pad, y1 - pad, x2 + pad, y2 + pad)
+            self.blocked[L, j0:j1 + 1, i0:i1 + 1] = value
+            if count:
+                sub = self.pad_count[L, j0:j1 + 1, i0:i1 + 1]
+                sub += 1
 
-    def disc(self, cx, cy, r, layers=(0, 1), value=True):
-        i0, i1 = self.ix(cx - r), self.ix(cx + r)
-        j0, j1 = self.iy(cy - r), self.iy(cy + r)
+    def disc(self, cx, cy, r, layers=(0, 1), inflate=0.0, value=True, count=False):
+        R = r + inflate
+        i0, i1, j0, j1 = self._slice(cx - R, cy - R, cx + R, cy + R)
+        xs = (np.arange(i0, i1 + 1) * GRID - cx)[None, :]
+        ys = (np.arange(j0, j1 + 1) * GRID - cy)[:, None]
+        m = (xs * xs + ys * ys) <= R * R
         for L in layers:
-            for j in range(max(0, j0), min(self.ny - 1, j1) + 1):
-                yy = (j * GRID - cy)
-                for i in range(max(0, i0), min(self.nx - 1, i1) + 1):
-                    xx = (i * GRID - cx)
-                    if xx * xx + yy * yy <= r * r:
-                        self.blocked[L, j, i] = value
+            sub = self.blocked[L, j0:j1 + 1, i0:i1 + 1]
+            sub[m] = value
+            if count:
+                cnt = self.pad_count[L, j0:j1 + 1, i0:i1 + 1]
+                cnt[m] += 1
 
     def margin(self, m):
-        self.blocked[:, :max(0, self.iy(m)), :] = True
-        self.blocked[:, min(self.ny, self.iy(self.h - m)):, :] = True
-        self.blocked[:, :, :max(0, self.ix(m))] = True
-        self.blocked[:, :, min(self.nx, self.ix(self.w - m)):] = True
+        self.blocked[:, :self.iy(m) + 1, :] = True
+        self.blocked[:, self.iy(self.h - m):, :] = True
+        self.blocked[:, :, :self.ix(m) + 1] = True
+        self.blocked[:, :, self.ix(self.w - m):] = True
 
-    # ---------------- A* ----------------
+    # ---------------- 焊盘 ----------------
+    def add_pad(self, p, layers, inflate=INFLATE):
+        """按外框把焊盘栅格化；有钻孔的再按圆加一圈"""
+        if not layers:
+            return
+        self.rect(p["x"] - p["w"] / 2, p["y"] - p["h"] / 2,
+                  p["x"] + p["w"] / 2, p["y"] + p["h"] / 2,
+                  layers=layers, inflate=inflate, count=True)
+        if p.get("drill", 0) > 0:
+            self.disc(p["x"], p["y"], p["drill"] / 2.0, layers=(0, 1),
+                      inflate=max(inflate, HOLE_INFLATE), count=True)
+
+    def pad_window(self, p, layers, inflate=INFLATE):
+        """该焊盘「自己的」外扩区；只在这里解锁，避免波及邻居焊盘"""
+        return self._slice(p["x"] - p["w"] / 2 - inflate, p["y"] - p["h"] / 2 - inflate,
+                           p["x"] + p["w"] / 2 + inflate, p["y"] + p["h"] / 2 + inflate)
+
+    def open_pad(self, p, layers):
+        """只解锁「本焊盘独占」的格子；被别的焊盘禁区覆盖的格子保持封锁，
+        否则高密度区（如 0.5mm 间距的 USB-C）会漏出通道造成间距违规。"""
+        saved = []
+        if not layers:
+            return saved
+        i0, i1, j0, j1 = self.pad_window(p, layers)
+        for L in layers:
+            sub = self.blocked[L, j0:j1 + 1, i0:i1 + 1].copy()
+            saved.append((L, i0, i1, j0, j1, sub))
+            cnt = self.pad_count[L, j0:j1 + 1, i0:i1 + 1]
+            self.blocked[L, j0:j1 + 1, i0:i1 + 1] = np.where(cnt <= 1, False, sub)
+        return saved
+
+    def restore(self, saved):
+        for L, i0, i1, j0, j1, sub in saved:
+            self.blocked[L, j0:j1 + 1, i0:i1 + 1] = sub
+
+    # ---------------- 走线占用 ----------------
+    def occupy(self, a, b, net_id, layer, inflate=OCC_INFLATE):
+        """按线段距离占用栅格（含端点），异网不可再用"""
+        (x1, y1), (x2, y2) = a, b
+        i0, i1, j0, j1 = self._slice(min(x1, x2) - inflate, min(y1, y2) - inflate,
+                                     max(x1, x2) + inflate, max(y1, y2) + inflate)
+        xs = np.arange(i0, i1 + 1) * GRID
+        ys = np.arange(j0, j1 + 1) * GRID
+        px = xs[None, :]
+        py = ys[:, None]
+        dx, dy = x2 - x1, y2 - y1
+        L2 = dx * dx + dy * dy
+        if L2 < 1e-12:
+            d2 = (px - x1) ** 2 + (py - y1) ** 2
+        else:
+            t = ((px - x1) * dx + (py - y1) * dy) / L2
+            t = np.clip(t, 0.0, 1.0)
+            d2 = (px - (x1 + t * dx)) ** 2 + (py - (y1 + t * dy)) ** 2
+        m = d2 <= inflate * inflate
+        sub = self.occ[layer, j0:j1 + 1, i0:i1 + 1]
+        sub[m & (sub == 0)] = net_id
+
+    def mark_via(self, ix, iy_, net_id):
+        r = int(np.ceil(VIA_INFLATE / GRID))
+        i0, i1 = max(0, ix - r), min(self.nx - 1, ix + r)
+        j0, j1 = max(0, iy_ - r), min(self.ny - 1, iy_ + r)
+        for L in (0, 1):
+            sub = self.occ[L, j0:j1 + 1, i0:i1 + 1]
+            sub[sub == 0] = net_id
+            self.via_used[L, j0:j1 + 1, i0:i1 + 1] = True
+
+    # ---------------- 过孔可用性 ----------------
     def build_via_mask(self):
-        """过孔可用性：静态障碍外扩 3 格(0.6mm)"""
-        a = self.blocked
-        out = a.copy()
-        for dy in range(-3, 4):
-            for dx in range(-3, 4):
-                out |= np.roll(np.roll(a, dy, axis=1), dx, axis=2)
+        r = int(np.ceil(VIA_INFLATE / GRID))
+        out = self.blocked.copy()
+        for dy in range(-r, r + 1):
+            for dx in range(-r, r + 1):
+                out |= np.roll(np.roll(self.blocked, dy, axis=1), dx, axis=2)
         self.via_block = out
 
+    # ---------------- A* ----------------
     def _init_astar(self):
-        if not hasattr(self, "_g"):
-            self._g = np.full((2, self.ny, self.nx), np.inf, dtype=np.float32)
-            self._stamp = np.zeros((2, self.ny, self.nx), dtype=np.int32)
-            self._came = np.full((2, self.ny, self.nx), -1, dtype=np.int64)
-            self._mark = 0
+        self._g = np.full((2, self.ny, self.nx), np.inf, dtype=np.float32)
+        self._stamp = np.zeros((2, self.ny, self.nx), dtype=np.int32)
+        self._came = np.full((2, self.ny, self.nx), -1, dtype=np.int32)
+        self._mark = 0
 
-    def astar(self, start, goal, budget=200_000, occupied=None, margin_mm=14.0):
-        """start/goal = (x, y, layer) 世界坐标(mm)；返回节点列表或 None"""
-        self._init_astar()
+    def astar(self, start, goal, net_id, budget=600_000, margin_mm=14.0, deadline=None):
+        if not hasattr(self, "_g"):
+            self._init_astar()
         self._mark += 1
         mk = self._mark
         sx, sy, sl = self.ix(start[0]), self.iy(start[1]), start[2]
@@ -87,30 +190,29 @@ class Grid:
         if not (0 <= sx < nx and 0 <= sy < ny and 0 <= gx < nx and 0 <= gy < ny):
             return None
 
-        # 搜索框
         m = int(round(margin_mm / GRID))
         bx0 = max(0, min(sx, gx) - m); bx1 = min(nx - 1, max(sx, gx) + m)
         by0 = max(0, min(sy, gy) - m); by1 = min(ny - 1, max(sy, gy) + m)
 
         g_arr, st_arr, cm_arr = self._g, self._stamp, self._came
-        blk = self.blocked
-        occ = occupied if occupied is not None else self.blocked
+        blk, occ, vb = self.blocked, self.occ, self.via_block
 
-        def k(L, y, x):
+        def key(L, y, x):
             return (L * ny + y) * nx + x
 
-        sidx = k(sl, sy, sx)
         g_arr[sl, sy, sx] = 0.0
         st_arr[sl, sy, sx] = mk
         cm_arr[sl, sy, sx] = -1
-        pq = [(abs(sx - gx) + abs(sy - gy), 0.0, sl, sy, sx)]
+        h0 = max(abs(sx - gx), abs(sy - gy))
+        pq = [(h0, 0.0, sl, sy, sx)]
         n = 0
+        DIRS = ((1, 0, 1.0), (-1, 0, 1.0), (0, 1, 1.0), (0, -1, 1.0),
+                (1, 1, SQ2), (1, -1, SQ2), (-1, 1, SQ2), (-1, -1, SQ2))
         while pq:
             f, g, L, y, x = heapq.heappop(pq)
             if st_arr[L, y, x] != mk or g > g_arr[L, y, x] + 1e-6:
                 continue
             if L == gl and y == gy and x == gx:
-                # 回溯
                 path = []
                 cy_, cx_, cl_ = y, x, L
                 while True:
@@ -124,73 +226,83 @@ class Grid:
             n += 1
             if n > budget:
                 return None
-            for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            if deadline is not None and (n & 4095) == 0 and time.monotonic() > deadline:
+                return None
+            for dx, dy, c in DIRS:
                 ax, ay = x + dx, y + dy
                 if ax < bx0 or ax > bx1 or ay < by0 or ay > by1:
                     continue
-                if blk[L, ay, ax] or occ[L, ay, ax]:
+                if blk[L, ay, ax]:
                     continue
-                ng = g + 1.0
+                o = occ[L, ay, ax]
+                if o != 0 and o != net_id:
+                    continue
+                if dx and dy:      # 对角不允许切角
+                    if blk[L, y, ax] or blk[L, ay, x]:
+                        continue
+                    oa = occ[L, y, ax]
+                    ob = occ[L, ay, x]
+                    if (oa != 0 and oa != net_id) or (ob != 0 and ob != net_id):
+                        continue
+                ng = g + c
                 if st_arr[L, ay, ax] != mk or ng < g_arr[L, ay, ax]:
                     st_arr[L, ay, ax] = mk
                     g_arr[L, ay, ax] = ng
-                    cm_arr[L, ay, ax] = k(L, y, x)
-                    heapq.heappush(pq, (ng + abs(ax - gx) + abs(ay - gy), ng, L, ay, ax))
+                    cm_arr[L, ay, ax] = key(L, y, x)
+                    hh = max(abs(ax - gx), abs(ay - gy))
+                    heapq.heappush(pq, (ng + hh, ng, L, ay, ax))
+            # 换层：过孔
             ol = 1 - L
-            if not self.via_block[L, y, x] and not self.via_block[ol, y, x] and \
-               not occ[L, y, x] and not occ[ol, y, x] and \
-               not occ[L, max(0,y-2):y+3, max(0,x-2):x+3].any() and \
-               not occ[ol, max(0,y-2):y+3, max(0,x-2):x+3].any():
-                ng = g + VIA_COST
-                if st_arr[ol, y, x] != mk or ng < g_arr[ol, y, x]:
-                    st_arr[ol, y, x] = mk
-                    g_arr[ol, y, x] = ng
-                    cm_arr[ol, y, x] = k(L, y, x)
-                    heapq.heappush(pq, (ng + abs(x - gx) + abs(y - gy), ng, ol, y, x))
+            vr = 3      # 0.3mm：孔-孔最小间距 0.25 + 余量
+            if self.via_used[L, max(0, y - vr):y + vr + 1,
+                             max(0, x - vr):x + vr + 1].any():
+                vr = -1
+            if vr > 0 and not vb[L, y, x] and not vb[ol, y, x] and not blk[ol, y, x]:
+                ok = True
+                r = 5      # 过孔铜皮 0.3 + 间距 0.2 = 0.5mm，占用检查半径必须够
+                for LL in (L, ol):
+                    sub = occ[LL, max(0, y - r):y + r + 1, max(0, x - r):x + r + 1]
+                    if np.any((sub != 0) & (sub != net_id)):
+                        ok = False
+                        break
+                if ok:
+                    ng = g + VIA_COST
+                    if st_arr[ol, y, x] != mk or ng < g_arr[ol, y, x]:
+                        st_arr[ol, y, x] = mk
+                        g_arr[ol, y, x] = ng
+                        cm_arr[ol, y, x] = key(L, y, x)
+                        hh = max(abs(x - gx), abs(y - gy))
+                        heapq.heappush(pq, (ng + hh, ng, ol, y, x))
         return None
-
-    def mark_via(self, x, y):
-        for L in (0, 1):
-            j0, j1 = max(0, y - 3), min(self.ny - 1, y + 3)
-            i0, i1 = max(0, x - 3), min(self.nx - 1, x + 3)
-            self.occ[L, j0:j1 + 1, i0:i1 + 1] = True
-            self.via_block[L, j0:j1 + 1, i0:i1 + 1] = True
-
-    def occupy(self, path, layer_by_node=True, pad=1):
-        """把路径标记为占用（对同层外扩 pad 格）"""
-        for (x, y, L) in path:
-            i0, i1 = max(0, x - pad), min(self.nx - 1, x + pad)
-            j0, j1 = max(0, y - pad), min(self.ny - 1, y + pad)
-            self.blocked[L, j0:j1 + 1, i0:i1 + 1] = True
 
 
 def path_to_geom(grid, path):
-    """把栅格路径转成 [(layer, [(x,y),...]), ...] 与过孔列表"""
-    groups = []
-    vias = []
-    cur_layer = path[0][2]
+    """栅格路径 -> [(layer, [(x,y),...]), ...] + 过孔坐标列表"""
+    if not path:
+        return [], []
+    groups, vias = [], []
+    cur = path[0][2]
     pts = [(path[0][0] * GRID, path[0][1] * GRID)]
     prev = path[0]
     for node in path[1:]:
-        if node[2] != cur_layer:
-            groups.append((cur_layer, pts))
+        if node[2] != cur:
+            groups.append((cur, pts))
             vias.append((prev[0] * GRID, prev[1] * GRID))
-            cur_layer = node[2]
+            cur = node[2]
             pts = [(node[0] * GRID, node[1] * GRID)]
         else:
             pts.append((node[0] * GRID, node[1] * GRID))
         prev = node
-    groups.append((cur_layer, pts))
+    groups.append((cur, pts))
 
-    # 合并共线点
     out = []
     for L, ps in groups:
         simp = [ps[0]]
         for i in range(1, len(ps) - 1):
             ax, ay = simp[-1]
             bx, by = ps[i]
-            cx_, cy_ = ps[i + 1]
-            if (bx - ax) * (cy_ - by) - (by - ay) * (cx_ - bx) == 0:
+            cx, cy = ps[i + 1]
+            if (bx - ax) * (cy - by) - (by - ay) * (cx - bx) == 0:
                 continue
             simp.append(ps[i])
         simp.append(ps[-1])
