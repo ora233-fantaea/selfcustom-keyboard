@@ -19,6 +19,7 @@ import time
 import numpy as np
 
 GRID = 0.1                 # 0.1mm：1.27mm 间距的 SOIC 才有足够通道
+HEUR_W = 2.0               # 加权 A*：f = g + W*h，牺牲最优性换搜索速度（路径仍合法）
 CLEAR = 0.2                 # 铜-铜间距
 TRACE_W = 0.15              # 线宽（信号线，0.2 间距下可省出通道）
 VIA_D, VIA_DRILL = 0.6, 0.3
@@ -44,7 +45,9 @@ class Grid:
         self.w, self.h = w, h
         self.blocked = np.zeros((2, self.ny, self.nx), dtype=bool)
         self.occ = np.zeros((2, self.ny, self.nx), dtype=np.int16)
-        self.pad_count = np.zeros((2, self.ny, self.nx), dtype=np.uint8)
+        self.shape_cnt = np.zeros((2, self.ny, self.nx), dtype=np.uint8)  # 阻挡形状计数
+        self.static_blk = np.zeros((2, self.ny, self.nx), dtype=bool)    # 板边/开槽等静障
+        self.own = {}                                                    # id(pad) -> 自身覆盖计数
         self.via_used = np.zeros((2, self.ny, self.nx), dtype=bool)   # 过孔-过孔最小间距
 
     # ---------------- 索引 ----------------
@@ -75,8 +78,9 @@ class Grid:
         for L in layers:
             self.blocked[L, j0:j1 + 1, i0:i1 + 1] = value
             if count:
-                sub = self.pad_count[L, j0:j1 + 1, i0:i1 + 1]
-                sub += 1
+                self.shape_cnt[L, j0:j1 + 1, i0:i1 + 1] += 1
+            elif value:
+                self.static_blk[L, j0:j1 + 1, i0:i1 + 1] = True
 
     def disc(self, cx, cy, r, layers=(0, 1), inflate=0.0, value=True, count=False):
         R = r + inflate
@@ -88,25 +92,59 @@ class Grid:
             sub = self.blocked[L, j0:j1 + 1, i0:i1 + 1]
             sub[m] = value
             if count:
-                cnt = self.pad_count[L, j0:j1 + 1, i0:i1 + 1]
-                cnt[m] += 1
+                self.shape_cnt[L, j0:j1 + 1, i0:i1 + 1][m] += 1
+            elif value:
+                self.static_blk[L, j0:j1 + 1, i0:i1 + 1][m] = True
 
     def margin(self, m):
         self.blocked[:, :self.iy(m) + 1, :] = True
         self.blocked[:, self.iy(self.h - m):, :] = True
         self.blocked[:, :, :self.ix(m) + 1] = True
         self.blocked[:, :, self.ix(self.w - m):] = True
+        self.static_blk[:, :self.iy(m) + 1, :] = True
+        self.static_blk[:, self.iy(self.h - m):, :] = True
+        self.static_blk[:, :, :self.ix(m) + 1] = True
+        self.static_blk[:, :, self.ix(self.w - m):] = True
 
     # ---------------- 焊盘 ----------------
     def add_pad(self, p, layers, inflate=INFLATE):
-        """按外框把焊盘栅格化；有钻孔的再按圆加一圈"""
+        """按外框把焊盘栅格化；有钻孔的再按圆加一圈。
+
+        同时记录每个格子被「本焊盘自身形状」覆盖的次数（own）：
+        rect() 是整片 slice 置位、disc() 是圆掩膜——own 必须用与它们
+        完全相同的范围，否则边界会差出半格，焊盘被自己 0.03mm 的
+        「护城河」封死（open_pad 永远解不开外圈）。
+        """
         if not layers:
             return
+        w2 = p["w"] / 2.0 + inflate
+        h2 = p["h"] / 2.0 + inflate
+        # rect 部分：与 self.rect() 同参数同 slice，整片 +1
+        ri0, ri1, rj0, rj1 = self._slice(p["x"] - w2, p["y"] - h2, p["x"] + w2, p["y"] + h2)
+        i0, i1, j0, j1 = ri0, ri1, rj0, rj1
+        disc_info = None
+        dr = p.get("drill", 0)
+        if dr > 0:
+            # disc 部分：与 self.disc() 同 R 同 slice 同掩膜
+            R = dr / 2.0 + max(inflate, HOLE_INFLATE)
+            di0, di1, dj0, dj1 = self._slice(p["x"] - R, p["y"] - R, p["x"] + R, p["y"] + R)
+            xs = (np.arange(di0, di1 + 1) * GRID - p["x"])[None, :]
+            ys = (np.arange(dj0, dj1 + 1) * GRID - p["y"])[:, None]
+            m = (xs * xs + ys * ys) <= R * R
+            disc_info = (di0, di1, dj0, dj1, m)
+            i0, i1 = min(i0, di0), max(i1, di1)
+            j0, j1 = min(j0, dj0), max(j1, dj1)
+        own = np.zeros((2, j1 - j0 + 1, i1 - i0 + 1), dtype=np.uint8)
+        own[:, rj0 - j0:rj1 - j0 + 1, ri0 - i0:ri1 - i0 + 1] += 1
+        if disc_info is not None:
+            di0, di1, dj0, dj1, m = disc_info
+            own[:, dj0 - j0:dj1 - j0 + 1, di0 - i0:di1 - i0 + 1] += m
+        self.own[id(p)] = (i0, i1, j0, j1, own)
         self.rect(p["x"] - p["w"] / 2, p["y"] - p["h"] / 2,
                   p["x"] + p["w"] / 2, p["y"] + p["h"] / 2,
                   layers=layers, inflate=inflate, count=True)
-        if p.get("drill", 0) > 0:
-            self.disc(p["x"], p["y"], p["drill"] / 2.0, layers=(0, 1),
+        if dr > 0:
+            self.disc(p["x"], p["y"], dr / 2.0, layers=(0, 1),
                       inflate=max(inflate, HOLE_INFLATE), count=True)
 
     def pad_window(self, p, layers, inflate=INFLATE):
@@ -115,17 +153,26 @@ class Grid:
                            p["x"] + p["w"] / 2 + inflate, p["y"] + p["h"] / 2 + inflate)
 
     def open_pad(self, p, layers):
-        """只解锁「本焊盘独占」的格子；被别的焊盘禁区覆盖的格子保持封锁，
-        否则高密度区（如 0.5mm 间距的 USB-C）会漏出通道造成间距违规。"""
+        """只解锁「完全被本焊盘自身形状覆盖」的格子。
+
+        - TH 焊盘中心被 rect+drill 两个自身形状覆盖（shape_cnt==own==2），可解锁；
+        - 被其他焊盘形状覆盖（shape_cnt>own）或压在板边/开槽静障（static）的格子
+          保持封锁，避免 0.5mm 间距连接器漏通道、或走出板边。"""
         saved = []
         if not layers:
             return saved
-        i0, i1, j0, j1 = self.pad_window(p, layers)
+        rec = self.own.get(id(p))
+        if rec is None:
+            return saved
+        i0, i1, j0, j1, own = rec
         for L in layers:
             sub = self.blocked[L, j0:j1 + 1, i0:i1 + 1].copy()
             saved.append((L, i0, i1, j0, j1, sub))
-            cnt = self.pad_count[L, j0:j1 + 1, i0:i1 + 1]
-            self.blocked[L, j0:j1 + 1, i0:i1 + 1] = np.where(cnt <= 1, False, sub)
+            cnt = self.shape_cnt[L, j0:j1 + 1, i0:i1 + 1]
+            st = self.static_blk[L, j0:j1 + 1, i0:i1 + 1]
+            om = own[L]
+            unlock = (om > 0) & (cnt == om) & (~st)
+            self.blocked[L, j0:j1 + 1, i0:i1 + 1] = np.where(unlock, False, sub)
         return saved
 
     def restore(self, saved):

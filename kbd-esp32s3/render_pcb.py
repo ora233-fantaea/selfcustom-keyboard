@@ -12,6 +12,7 @@ import board_geom as BG
 path = sys.argv[1] if len(sys.argv) > 1 else "kbd-esp32s3.kicad_pcb"
 out = sys.argv[2] if len(sys.argv) > 2 else "pcb_preview.png"
 zoom = sys.argv[3] if len(sys.argv) > 3 else None
+only = sys.argv[4] if len(sys.argv) > 4 else None   # "F" / "B" 只画某一层走线
 
 g = BG.load(path)
 ox, oy, ex, ey, _ = g["outline"]
@@ -32,7 +33,8 @@ for p in g["pads"]:
     ax.add_patch(Rectangle((p["x"] - p["w"] / 2, p["y"] - p["h"] / 2), p["w"], p["h"],
                            fc=color, ec="none", alpha=0.95, zorder=5))
 
-for layer, col in (("F.Cu", "#1f9d55"), ("B.Cu", "#8e44ad")):
+layers_to_draw = (("F.Cu", "#1f9d55"),) if only == "F" else (("B.Cu", "#8e44ad"),) if only == "B" else (("F.Cu", "#1f9d55"), ("B.Cu", "#8e44ad"))
+for layer, col in layers_to_draw:
     segs = [[(t["x1"], t["y1"]), (t["x2"], t["y2"])] for t in g["tracks"] if t["layer"] == layer]
     if segs:
         ax.add_collection(LineCollection(segs, colors=col, linewidths=0.55, zorder=4))

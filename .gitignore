@@ -18,3 +18,10 @@ Thumbs.db
 *.drc.rpt
 drc_*.rpt
 _bisect/
+
+# 布线中间产物
+_unrouted.kicad_pcb
+_before_repair.kicad_pcb
+_route.log
+_board_meta.json
+*.kicad_pro

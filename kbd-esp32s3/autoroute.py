@@ -41,7 +41,8 @@ def build_grid(g):
     for p in g["pads"]:
         lays = pad_layers(p)
         if not lays and p.get("drill", 0) > 0:    # NPTH 安装孔 / 定位柱孔
-            gr.disc(p["x"], p["y"], p["drill"] / 2.0, layers=(0, 1), inflate=HOLE_INFLATE)
+            gr.disc(p["x"], p["y"], p["drill"] / 2.0, layers=(0, 1),
+                    inflate=HOLE_INFLATE, count=True)   # 计入 shape_cnt，防止别的焊盘解锁到这
             continue
         gr.add_pad(p, lays)          # 外框 +（若有）钻孔圆，均已外扩
     gr.build_via_mask()
@@ -98,8 +99,15 @@ def main():
             tasks.append((net, sw, ic))
             tasks.append((net, ic, rp))
 
+    # J_P1 引脚号一律从设计引脚表派生，杜绝与 22 针映射脱节
+    def p1_pin(net):
+        for n_, (lab_, nt_) in D.P1_PINOUT.items():
+            if nt_ == net:
+                return str(n_)
+        raise KeyError(f"P1_PINOUT 里没有 {net}")
+
     for net, ipin in (("CLK", "2"), ("SH_LD", "1")):
-        prev = pad_of("J_P1", "3" if net == "CLK" else "4")
+        prev = pad_of("J_P1", p1_pin(net))
         for i in range(D.CHIP_COUNT):
             cur = pad_of(f"U{i+1}", ipin)
             if prev and cur:
@@ -107,12 +115,12 @@ def main():
             prev = cur
     for i in range(D.CHIP_COUNT - 1):
         tasks.append((f"CHAIN_{i+1}", pad_of(f"U{i+1}", "9"), pad_of(f"U{i+2}", "10")))
-    tasks.append(("CHAIN_10", pad_of(f"U{D.CHIP_COUNT}", "9"), pad_of("J_P1", "5")))
+    tasks.append(("CHAIN_10", pad_of(f"U{D.CHIP_COUNT}", "9"), pad_of("J_P1", p1_pin("CHAIN_10"))))
     for net, num in (("ENC_A", "A"), ("ENC_B", "B"), ("ENC_SW", "S1")):
-        tasks.append((net, pad_of("ENC1", num),
-                      pad_of("J_P1", {"ENC_A": "6", "ENC_B": "7", "ENC_SW": "8"}[net])))
+        tasks.append((net, pad_of("ENC1", num), pad_of("J_P1", p1_pin(net))))
 
     tasks = [t for t in tasks if t[1] and t[2]]
+    # 先短后长：短网络快速占位，长网络留给大预算重试
     tasks.sort(key=lambda t: dist2(t[1], t[2]))
     print(f"待布 {len(tasks)} 条（含同网络分段）")
     if limit:
@@ -150,6 +158,11 @@ def main():
 
     ok, fail = 0, []
     for idx, (net, a, b) in enumerate(tasks):
+        if a["net"] != net or b["net"] != net:
+            print(f"  [跳过] {net}: 端点焊盘网络不符 "
+                  f"({a['ref']}.{a['num']}={a['net']}, {b['ref']}.{b['num']}={b['net']})")
+            fail.append((net, a, b))
+            continue
         nid = NET_ID[net]
         la, lb = pad_layers(a), pad_layers(b)
         la = la[0] if la else 0
@@ -176,6 +189,38 @@ def main():
         ok += 1
         if (idx + 1) % 20 == 0:
             print(f"  ... {idx+1}/{len(tasks)}  成功 {ok} 失败 {len(fail)}")
+
+    # ---------------- 失败网络重试：长网络优先，放宽预算 ----------------
+    if fail:
+        fail.sort(key=lambda t: -dist2(t[1], t[2]))
+        print(f"\n重试 {len(fail)} 条失败网络（长网络优先，60s/条）")
+        still = []
+        for net, a, b in fail:
+            nid = NET_ID[net]
+            la, lb = pad_layers(a), pad_layers(b)
+            la = la[0] if la else 0
+            lb = lb[0] if lb else 0
+            sa, sb = gr.open_pad(a, pad_layers(a)), gr.open_pad(b, pad_layers(b))
+            span = math.hypot(a["x"] - b["x"], a["y"] - b["y"])
+            t_end = time.monotonic() + 60.0
+            path = None
+            for mg in (max(20.0, span * 1.2), max(60.0, span * 2.0)):
+                path = gr.astar((a["x"], a["y"], la), (b["x"], b["y"], lb), nid,
+                                margin_mm=mg, budget=2_000_000, deadline=t_end)
+                if path is None:
+                    path = gr.astar((a["x"], a["y"], 1 - la), (b["x"], b["y"], 1 - lb), nid,
+                                    margin_mm=mg, budget=2_000_000, deadline=t_end)
+                if path is not None:
+                    break
+            gr.restore(sa)
+            gr.restore(sb)
+            if path is None:
+                still.append((net, a, b))
+                continue
+            commit(path, net)
+            ok += 1
+            print(f"  [重试成功] {net} {a['ref']}.{a['num']}->{b['ref']}.{b['num']}")
+        fail = still
 
     # ---------------- 电源网络：MST ----------------
     def mst_route(net):
@@ -216,7 +261,9 @@ def main():
             good += 1
         print(f"  [电源] {net}: {good}/{len(edges)} 段")
 
-    for pnet in ("GND", "VCC", "V5"):
+    # GND 不走 MST——改用 B.Cu 整面铺铜（zones_gnd.py 用 pcbnew 生成并填充），
+    # 290 段 MST 走线既占通道又没必要。V5/VCC 仍走 MST。
+    for pnet in ("VCC", "V5"):
         mst_route(pnet)
 
     print(f"\n布线完成 {ok}/{len(tasks)}，失败 {len(fail)}")
