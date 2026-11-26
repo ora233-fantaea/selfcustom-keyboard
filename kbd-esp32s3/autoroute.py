@@ -16,9 +16,10 @@ import uuid
 
 import pcbkit as K
 import board_geom as BG
-from router import Grid, path_to_geom, GRID, EDGE_INFLATE, HOLE_INFLATE, TRACE_W
+from router import (Grid, path_to_geom, GRID, EDGE_INFLATE, HOLE_INFLATE,
+                    TRACE_W, NL)
 
-LAYER_NAME = {0: "F.Cu", 1: "B.Cu"}
+LAYER_NAME = {0: "F.Cu", 1: "In1.Cu", 2: "In2.Cu", 3: "B.Cu"}
 HERE = os.path.dirname(os.path.abspath(__file__))
 PCB = os.path.join(HERE, "kbd-esp32s3.kicad_pcb")
 
@@ -27,24 +28,66 @@ def dist2(a, b):
     return (a["x"] - b["x"]) ** 2 + (a["y"] - b["y"]) ** 2
 
 
+LMAP = {"F.Cu": 0, "In1.Cu": 1, "In2.Cu": 2, "B.Cu": 3}
+
+
 def pad_layers(p):
-    """焊盘铜层 -> 层索引元组"""
+    """焊盘铜层 -> 层索引元组（4 层：0=F 1=In1 2=In2 3=B）"""
+    if any("*.Cu" in l for l in p["layers"]):
+        return (0, 1, 2, 3)                      # 通孔焊盘贯穿所有铜层
     lays = BG.copper_layers(p)
-    return tuple(0 if l == "F.Cu" else 1 for l in sorted(lays))
+    return tuple(sorted(LMAP[l] for l in lays if l in LMAP))
+
+
+def _cluster(items, gap=1.0):
+    """把同一 (ref,num,net) 的多个几何按外框相近程度分组（<1mm 才算同一焊盘）"""
+    n = len(items)
+    if n <= 1:
+        return [items]
+    par = list(range(n))
+
+    def find(a):
+        while par[a] != a:
+            par[a] = par[par[a]]
+            a = par[a]
+        return a
+
+    box = []
+    for p, _ in items:
+        box.append((p["x"] - p["w"] / 2 - gap, p["y"] - p["h"] / 2 - gap,
+                    p["x"] + p["w"] / 2 + gap, p["y"] + p["h"] / 2 + gap))
+    for i in range(n):
+        for j in range(i + 1, n):
+            a, b = box[i], box[j]
+            if a[0] <= b[2] and b[0] <= a[2] and a[1] <= b[3] and b[1] <= a[3]:
+                ra, rb = find(i), find(j)
+                if ra != rb:
+                    par[ra] = rb
+    out = {}
+    for i in range(n):
+        out.setdefault(find(i), []).append(items[i])
+    return list(out.values())
 
 
 def build_grid(g):
     gr = Grid(g["outline"][2], g["outline"][3])
     gr.margin(EDGE_INFLATE)                       # 板框
     for s in g["slots"]:                          # 开槽
-        gr.rect(s[0], s[1], s[2], s[3], layers=(0, 1), inflate=EDGE_INFLATE)
+        gr.rect(s[0], s[1], s[2], s[3], layers=tuple(range(NL)), inflate=EDGE_INFLATE)
+    groups = {}
     for p in g["pads"]:
         lays = pad_layers(p)
         if not lays and p.get("drill", 0) > 0:    # NPTH 安装孔 / 定位柱孔
-            gr.disc(p["x"], p["y"], p["drill"] / 2.0, layers=(0, 1),
+            gr.disc(p["x"], p["y"], p["drill"] / 2.0, layers=tuple(range(NL)),
                     inflate=HOLE_INFLATE, count=True)   # 计入 shape_cnt，防止别的焊盘解锁到这
             continue
-        gr.add_pad(p, lays)          # 外框 +（若有）钻孔圆，均已外扩
+        if not lays:
+            continue
+        # 同一焊盘号的多重几何必须合并计数，否则 open_pad 永远解不开
+        groups.setdefault((p["ref"], p["num"], p["net"]), []).append((p, lays))
+    for base, items in groups.items():
+        for ci, ps in enumerate(_cluster(items)):
+            gr.add_pad_group(ps, ("G", base, ci))
     gr.build_via_mask()
     return gr
 

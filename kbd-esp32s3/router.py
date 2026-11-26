@@ -18,6 +18,8 @@ import time
 
 import numpy as np
 
+NL = 4                     # 铜层数：0=F.Cu 1=In1.Cu 2=In2.Cu 3=B.Cu
+SIG = (0, 2, 3)            # 走线层；In1 保留为完整 GND 平面
 GRID = 0.1                 # 0.1mm：1.27mm 间距的 SOIC 才有足够通道
 HEUR_W = 2.0               # 加权 A*：f = g + W*h，牺牲最优性换搜索速度（路径仍合法）
 CLEAR = 0.2                 # 铜-铜间距
@@ -43,12 +45,12 @@ class Grid:
         self.nx = int(round(w / GRID)) + 1
         self.ny = int(round(h / GRID)) + 1
         self.w, self.h = w, h
-        self.blocked = np.zeros((2, self.ny, self.nx), dtype=bool)
-        self.occ = np.zeros((2, self.ny, self.nx), dtype=np.int16)
-        self.shape_cnt = np.zeros((2, self.ny, self.nx), dtype=np.uint8)  # 阻挡形状计数
-        self.static_blk = np.zeros((2, self.ny, self.nx), dtype=bool)    # 板边/开槽等静障
+        self.blocked = np.zeros((NL, self.ny, self.nx), dtype=bool)
+        self.occ = np.zeros((NL, self.ny, self.nx), dtype=np.int16)
+        self.shape_cnt = np.zeros((NL, self.ny, self.nx), dtype=np.uint8)  # 阻挡形状计数
+        self.static_blk = np.zeros((NL, self.ny, self.nx), dtype=bool)    # 板边/开槽等静障
         self.own = {}                                                    # id(pad) -> 自身覆盖计数
-        self.via_used = np.zeros((2, self.ny, self.nx), dtype=bool)   # 过孔-过孔最小间距
+        self.via_used = np.zeros((NL, self.ny, self.nx), dtype=bool)   # 过孔-过孔最小间距
 
     # ---------------- 索引 ----------------
     def ix(self, x):
@@ -73,7 +75,7 @@ class Grid:
             j0 = j1 = max(0, min(self.ny - 1, self.iy((y1 + y2) / 2)))
         return i0, i1, j0, j1
 
-    def rect(self, x1, y1, x2, y2, layers=(0, 1), inflate=0.0, value=True, count=False):
+    def rect(self, x1, y1, x2, y2, layers=tuple(range(NL)), inflate=0.0, value=True, count=False):
         i0, i1, j0, j1 = self._slice(x1 - inflate, y1 - inflate, x2 + inflate, y2 + inflate)
         for L in layers:
             self.blocked[L, j0:j1 + 1, i0:i1 + 1] = value
@@ -82,7 +84,7 @@ class Grid:
             elif value:
                 self.static_blk[L, j0:j1 + 1, i0:i1 + 1] = True
 
-    def disc(self, cx, cy, r, layers=(0, 1), inflate=0.0, value=True, count=False):
+    def disc(self, cx, cy, r, layers=tuple(range(NL)), inflate=0.0, value=True, count=False):
         R = r + inflate
         i0, i1, j0, j1 = self._slice(cx - R, cy - R, cx + R, cy + R)
         xs = (np.arange(i0, i1 + 1) * GRID - cx)[None, :]
@@ -134,7 +136,7 @@ class Grid:
             disc_info = (di0, di1, dj0, dj1, m)
             i0, i1 = min(i0, di0), max(i1, di1)
             j0, j1 = min(j0, dj0), max(j1, dj1)
-        own = np.zeros((2, j1 - j0 + 1, i1 - i0 + 1), dtype=np.uint8)
+        own = np.zeros((NL, j1 - j0 + 1, i1 - i0 + 1), dtype=np.uint8)
         own[:, rj0 - j0:rj1 - j0 + 1, ri0 - i0:ri1 - i0 + 1] += 1
         if disc_info is not None:
             di0, di1, dj0, dj1, m = disc_info
@@ -144,7 +146,7 @@ class Grid:
                   p["x"] + p["w"] / 2, p["y"] + p["h"] / 2,
                   layers=layers, inflate=inflate, count=True)
         if dr > 0:
-            self.disc(p["x"], p["y"], dr / 2.0, layers=(0, 1),
+            self.disc(p["x"], p["y"], dr / 2.0, layers=tuple(range(NL)),
                       inflate=max(inflate, HOLE_INFLATE), count=True)
 
     def pad_window(self, p, layers, inflate=INFLATE):
@@ -152,16 +154,71 @@ class Grid:
         return self._slice(p["x"] - p["w"] / 2 - inflate, p["y"] - p["h"] / 2 - inflate,
                            p["x"] + p["w"] / 2 + inflate, p["y"] + p["h"] / 2 + inflate)
 
+    def add_pad_group(self, items, key, inflate=INFLATE):
+        """同一焊盘号的多重几何（贴片 + 桥接 + 通孔）当成**一个**焊盘解锁。
+
+        本板 1164 个焊盘记录只对应 707 个 (ref,num)：按键封装的一个触点
+        由 3 个重叠形状组成。若各自记 own，shape_cnt 会累加到 3，而每个
+        own 只有 1，open_pad 的 cnt==om 永远不成立 —— 焊盘谁也进不去。
+        所有 SW 焊盘都是这种，所以 SW->IC 一条都布不通，而单形状的
+        IC / 电阻焊盘却完全正常。这是「布线永远差最后一公里」的真根因。
+        """
+        recs = []
+        for p, layers in items:
+            if not layers:
+                continue
+            w2 = p["w"] / 2.0 + inflate
+            h2 = p["h"] / 2.0 + inflate
+            ri = self._slice(p["x"] - w2, p["y"] - h2, p["x"] + w2, p["y"] + h2)
+            din = None
+            dr = p.get("drill", 0)
+            if dr > 0:
+                R = dr / 2.0 + max(inflate, HOLE_INFLATE)
+                di = self._slice(p["x"] - R, p["y"] - R, p["x"] + R, p["y"] + R)
+                xs = (np.arange(di[0], di[1] + 1) * GRID - p["x"])[None, :]
+                ys = (np.arange(di[2], di[3] + 1) * GRID - p["y"])[:, None]
+                din = (di, (xs * xs + ys * ys) <= R * R)
+            recs.append((p, layers, ri, din))
+        if not recs:
+            return
+        i0 = i1 = j0 = j1 = None
+        for _, _, ri, din in recs:
+            for a, b in ((ri[0], ri[1]),):
+                i0 = a if i0 is None else min(i0, a)
+                i1 = b if i1 is None else max(i1, b)
+            j0 = ri[2] if j0 is None else min(j0, ri[2])
+            j1 = ri[3] if j1 is None else max(j1, ri[3])
+            if din:
+                di = din[0]
+                i0, i1 = min(i0, di[0]), max(i1, di[1])
+                j0, j1 = min(j0, di[2]), max(j1, di[3])
+        own = np.zeros((NL, j1 - j0 + 1, i1 - i0 + 1), dtype=np.uint8)
+        for _, _, ri, din in recs:
+            own[:, ri[2] - j0:ri[3] - j0 + 1, ri[0] - i0:ri[1] - i0 + 1] += 1
+            if din:
+                di, m = din
+                own[:, di[2] - j0:di[3] - j0 + 1, di[0] - i0:di[1] - i0 + 1] += m
+        self.own[key] = (i0, i1, j0, j1, own)
+        for p, layers, ri, din in recs:
+            p["_gk"] = key
+            self.rect(p["x"] - p["w"] / 2, p["y"] - p["h"] / 2,
+                      p["x"] + p["w"] / 2, p["y"] + p["h"] / 2,
+                      layers=layers, inflate=inflate, count=True)
+            if din:
+                self.disc(p["x"], p["y"], p.get("drill", 0) / 2.0, layers=tuple(range(NL)),
+                          inflate=max(inflate, HOLE_INFLATE), count=True)
+
     def open_pad(self, p, layers):
         """只解锁「完全被本焊盘自身形状覆盖」的格子。
 
-        - TH 焊盘中心被 rect+drill 两个自身形状覆盖（shape_cnt==own==2），可解锁；
+        - 同一焊盘号的多重几何已合并计数（见 add_pad_group）；
         - 被其他焊盘形状覆盖（shape_cnt>own）或压在板边/开槽静障（static）的格子
           保持封锁，避免 0.5mm 间距连接器漏通道、或走出板边。"""
         saved = []
         if not layers:
             return saved
-        rec = self.own.get(id(p))
+        k = p.get("_gk")
+        rec = self.own.get(k if k is not None else id(p))
         if rec is None:
             return saved
         i0, i1, j0, j1, own = rec
@@ -205,7 +262,7 @@ class Grid:
         r = int(np.ceil(VIA_INFLATE / GRID))
         i0, i1 = max(0, ix - r), min(self.nx - 1, ix + r)
         j0, j1 = max(0, iy_ - r), min(self.ny - 1, iy_ + r)
-        for L in (0, 1):
+        for L in range(NL):
             sub = self.occ[L, j0:j1 + 1, i0:i1 + 1]
             sub[sub == 0] = net_id
             self.via_used[L, j0:j1 + 1, i0:i1 + 1] = True
@@ -221,9 +278,9 @@ class Grid:
 
     # ---------------- A* ----------------
     def _init_astar(self):
-        self._g = np.full((2, self.ny, self.nx), np.inf, dtype=np.float32)
-        self._stamp = np.zeros((2, self.ny, self.nx), dtype=np.int32)
-        self._came = np.full((2, self.ny, self.nx), -1, dtype=np.int32)
+        self._g = np.full((NL, self.ny, self.nx), np.inf, dtype=np.float32)
+        self._stamp = np.zeros((NL, self.ny, self.nx), dtype=np.int32)
+        self._came = np.full((NL, self.ny, self.nx), -1, dtype=np.int32)
         self._mark = 0
 
     def astar(self, start, goal, net_id, budget=600_000, margin_mm=14.0, deadline=None):
@@ -297,29 +354,31 @@ class Grid:
                     g_arr[L, ay, ax] = ng
                     cm_arr[L, ay, ax] = key(L, y, x)
                     hh = max(abs(ax - gx), abs(ay - gy))
-                    heapq.heappush(pq, (ng + hh, ng, L, ay, ax))
-            # 换层：过孔
-            ol = 1 - L
+                    heapq.heappush(pq, (ng + HEUR_W * hh, ng, L, ay, ax))
+            # 换层：贯穿孔（F<->In1<->In2<->B 一次打穿），所有铜层都要让开
             vr = 3      # 0.3mm：孔-孔最小间距 0.25 + 余量
             if self.via_used[L, max(0, y - vr):y + vr + 1,
                              max(0, x - vr):x + vr + 1].any():
                 vr = -1
-            if vr > 0 and not vb[L, y, x] and not vb[ol, y, x] and not blk[ol, y, x]:
+            if vr > 0 and not vb[:, y, x].any() and not blk[:, y, x].any():
                 ok = True
                 r = 5      # 过孔铜皮 0.3 + 间距 0.2 = 0.5mm，占用检查半径必须够
-                for LL in (L, ol):
+                for LL in range(NL):
                     sub = occ[LL, max(0, y - r):y + r + 1, max(0, x - r):x + r + 1]
                     if np.any((sub != 0) & (sub != net_id)):
                         ok = False
                         break
                 if ok:
-                    ng = g + VIA_COST
-                    if st_arr[ol, y, x] != mk or ng < g_arr[ol, y, x]:
-                        st_arr[ol, y, x] = mk
-                        g_arr[ol, y, x] = ng
-                        cm_arr[ol, y, x] = key(L, y, x)
-                        hh = max(abs(x - gx), abs(y - gy))
-                        heapq.heappush(pq, (ng + hh, ng, ol, y, x))
+                    for ol in SIG:
+                        if ol == L:
+                            continue
+                        ng = g + VIA_COST
+                        if st_arr[ol, y, x] != mk or ng < g_arr[ol, y, x]:
+                            st_arr[ol, y, x] = mk
+                            g_arr[ol, y, x] = ng
+                            cm_arr[ol, y, x] = key(L, y, x)
+                            hh = max(abs(x - gx), abs(y - gy))
+                            heapq.heappush(pq, (ng + HEUR_W * hh, ng, ol, y, x))
         return None
 
 

@@ -25,3 +25,11 @@ _before_repair.kicad_pcb
 _route.log
 _board_meta.json
 *.kicad_pro
+
+# 布线过程中的备份板与中间产物（不进仓库）
+kbd-esp32s3/_*.kicad_pcb
+kbd-esp32s3/_*.json
+kbd-esp32s3/_*.log
+kbd-esp32s3/_*.txt
+kbd-esp32s3/*.kicad_pcb.z
+kbd-esp32s3/*.kicad_pro.tmp
