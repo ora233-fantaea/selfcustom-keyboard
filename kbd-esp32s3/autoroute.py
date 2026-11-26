@@ -29,12 +29,15 @@ def dist2(a, b):
 
 
 LMAP = {"F.Cu": 0, "In1.Cu": 1, "In2.Cu": 2, "B.Cu": 3}
+PLANE_LAYERS = (1,)     # In1.Cu = VCC 完整平面，禁止走线
 
 
 def pad_layers(p):
     """焊盘铜层 -> 层索引元组（4 层：0=F 1=In1 2=In2 3=B）"""
     if any("*.Cu" in l for l in p["layers"]):
-        return (0, 1, 2, 3)                      # 通孔焊盘贯穿所有铜层
+        # 通孔焊盘物理上贯穿 4 层，但 In1 是 VCC 完整平面，绝不能走线 ——
+        # 否则会把电源平面割裂。这里只返回可走线的层。
+        return tuple(L for L in (0, 1, 2, 3) if L not in PLANE_LAYERS)
     lays = BG.copper_layers(p)
     return tuple(sorted(LMAP[l] for l in lays if l in LMAP))
 
